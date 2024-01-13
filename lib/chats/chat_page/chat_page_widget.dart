@@ -3,8 +3,10 @@ import '/flutter_flow/chat/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -16,12 +18,10 @@ class ChatPageWidget extends StatefulWidget {
     Key? key,
     this.chatUser,
     this.chatRef,
-    this.chat,
   }) : super(key: key);
 
   final AllUsersRecord? chatUser;
   final DocumentReference? chatRef;
-  final ChatsRecord? chat;
 
   @override
   _ChatPageWidgetState createState() => _ChatPageWidgetState();
@@ -57,6 +57,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
         setState(() => _chatInfo = info);
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -68,6 +70,15 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -95,7 +106,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
               ? _chatInfo!.chatRecord.groupChatName
               : _chatInfo!.otherUsersList.first.displayName,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Readex Pro',
+                fontFamily: 'Poppins',
                 color: FlutterFlowTheme.of(context).secondary,
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
@@ -103,7 +114,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
         ),
         actions: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+            padding: EdgeInsets.all(8.0),
             child: FlutterFlowIconButton(
               borderRadius: 20.0,
               borderWidth: 1.0,
@@ -179,11 +190,11 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                 )
               : Center(
                   child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: SpinKitThreeBounce(
+                    width: 20.0,
+                    height: 20.0,
+                    child: SpinKitChasingDots(
                       color: Color(0xFFCF2E2E),
-                      size: 50.0,
+                      size: 20.0,
                     ),
                   ),
                 ),

@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -26,6 +27,12 @@ class UserMembersRecord extends FirestoreRecord {
   List<UserRelationDataStruct> get userData => _userData ?? const [];
   bool hasUserData() => _userData != null;
 
+  // "invited_user_data" field.
+  List<UserInvitationDataStruct>? _invitedUserData;
+  List<UserInvitationDataStruct> get invitedUserData =>
+      _invitedUserData ?? const [];
+  bool hasInvitedUserData() => _invitedUserData != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -33,6 +40,10 @@ class UserMembersRecord extends FirestoreRecord {
     _userData = getStructList(
       snapshotData['user_data'],
       UserRelationDataStruct.fromMap,
+    );
+    _invitedUserData = getStructList(
+      snapshotData['invited_user_data'],
+      UserInvitationDataStruct.fromMap,
     );
   }
 
@@ -94,12 +105,13 @@ class UserMembersRecordDocumentEquality implements Equality<UserMembersRecord> {
   bool equals(UserMembersRecord? e1, UserMembersRecord? e2) {
     const listEquality = ListEquality();
     return e1?.user == e2?.user &&
-        listEquality.equals(e1?.userData, e2?.userData);
+        listEquality.equals(e1?.userData, e2?.userData) &&
+        listEquality.equals(e1?.invitedUserData, e2?.invitedUserData);
   }
 
   @override
   int hash(UserMembersRecord? e) =>
-      const ListEquality().hash([e?.user, e?.userData]);
+      const ListEquality().hash([e?.user, e?.userData, e?.invitedUserData]);
 
   @override
   bool isValidKey(Object? o) => o is UserMembersRecord;

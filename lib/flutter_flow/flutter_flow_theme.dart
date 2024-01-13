@@ -36,8 +36,6 @@ abstract class FlutterFlowTheme {
   late Color gray200;
   late Color gray600;
   late Color black600;
-  late Color tertiary400;
-  late Color textColor;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -115,12 +113,12 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color tertiary = const Color(0xFF232323);
   late Color alternate = const Color(0xFFE0E3E7);
   late Color primaryText = const Color(0xFF14181B);
-  late Color secondaryText = const Color(0xFF57636C);
+  late Color secondaryText = const Color(0xFFE0E3E7);
   late Color primaryBackground = const Color(0xFF2D2D2D);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
   late Color accent1 = const Color(0xFFAA2229);
   late Color accent2 = const Color(0x4D39D2C0);
-  late Color accent3 = const Color(0x4DEE8B60);
+  late Color accent3 = const Color(0x309E9E9E);
   late Color accent4 = const Color(0xCCFFFFFF);
   late Color success = const Color(0xFF249689);
   late Color warning = const Color(0xFFF9CF58);
@@ -131,8 +129,6 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color gray200 = Color(0xFFDBE2E7);
   late Color gray600 = Color(0xFF262D34);
   late Color black600 = Color(0xFF090F13);
-  late Color tertiary400 = Color(0xFF39D2C0);
-  late Color textColor = Color(0xFF1E2429);
 }
 
 abstract class Typography {
@@ -176,106 +172,106 @@ class ThemeTypography extends Typography {
   String get displayLargeFamily => 'Hammersmith One';
   TextStyle get displayLarge => GoogleFonts.getFont(
         'Hammersmith One',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 64.0,
+        color: theme.primary,
+        fontWeight: FontWeight.bold,
+        fontSize: 40.0,
       );
-  String get displayMediumFamily => 'Hammersmith One';
+  String get displayMediumFamily => 'Poppins';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Hammersmith One',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 44.0,
-      );
-  String get displaySmallFamily => 'Hammersmith One';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Hammersmith One',
-        color: theme.primaryText,
+        'Poppins',
+        color: theme.primary,
         fontWeight: FontWeight.w600,
-        fontSize: 36.0,
+        fontSize: 32.0,
+      );
+  String get displaySmallFamily => 'Poppins';
+  TextStyle get displaySmall => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 28.0,
       );
   String get headlineLargeFamily => 'Hammersmith One';
   TextStyle get headlineLarge => GoogleFonts.getFont(
         'Hammersmith One',
-        color: theme.primaryText,
+        color: theme.secondary,
         fontWeight: FontWeight.w600,
-        fontSize: 32.0,
+        fontSize: 26.0,
       );
-  String get headlineMediumFamily => 'Hammersmith One';
+  String get headlineMediumFamily => 'Poppins';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Hammersmith One',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 24.0,
-      );
-  String get headlineSmallFamily => 'Hammersmith One';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Hammersmith One',
-        color: theme.primaryText,
+        'Poppins',
+        color: theme.secondary,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
+      );
+  String get headlineSmallFamily => 'Poppins';
+  TextStyle get headlineSmall => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 22.0,
       );
   String get titleLargeFamily => 'Hammersmith One';
   TextStyle get titleLarge => GoogleFonts.getFont(
         'Hammersmith One',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        color: theme.secondary,
+        fontWeight: FontWeight.w600,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Readex Pro';
+  String get titleMediumFamily => 'Poppins';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.info,
-        fontWeight: FontWeight.normal,
+        'Poppins',
+        color: theme.secondary,
+        fontWeight: FontWeight.w500,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Readex Pro';
+  String get titleSmallFamily => 'Poppins';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.info,
-        fontWeight: FontWeight.w500,
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Readex Pro';
+  String get labelLargeFamily => 'Hammersmith One';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        'Hammersmith One',
+        color: theme.secondary,
+        fontWeight: FontWeight.w600,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Readex Pro';
+  String get labelMediumFamily => 'Poppins';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        'Poppins',
+        color: theme.secondary,
+        fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Readex Pro';
+  String get labelSmallFamily => 'Poppins';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Poppins',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Readex Pro';
+  String get bodyLargeFamily => 'Poppins';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Readex Pro';
+  String get bodyMediumFamily => 'Poppins';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.primaryText,
+        'Poppins',
+        color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Readex Pro';
+  String get bodySmallFamily => 'Poppins';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w300,
         fontSize: 12.0,
       );
 }

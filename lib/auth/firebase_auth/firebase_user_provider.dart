@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class MyFightBaseLearningProjektFirebaseUser extends BaseAuthUser {
-  MyFightBaseLearningProjektFirebaseUser(this.user);
+class MyFightBaseBetaFirebaseUser extends BaseAuthUser {
+  MyFightBaseBetaFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 
@@ -23,7 +23,13 @@ class MyFightBaseLearningProjektFirebaseUser extends BaseAuthUser {
   Future? delete() => user?.delete();
 
   @override
-  Future? updateEmail(String email) async => await user?.updateEmail(email);
+  Future? updateEmail(String email) async {
+    try {
+      await user?.updateEmail(email);
+    } catch (_) {
+      await user?.verifyBeforeUpdateEmail(email);
+    }
+  }
 
   @override
   Future? sendEmailVerification() => user?.sendEmailVerification();
@@ -48,10 +54,10 @@ class MyFightBaseLearningProjektFirebaseUser extends BaseAuthUser {
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
   static BaseAuthUser fromFirebaseUser(User? user) =>
-      MyFightBaseLearningProjektFirebaseUser(user);
+      MyFightBaseBetaFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> myFightBaseLearningProjektFirebaseUserStream() =>
+Stream<BaseAuthUser> myFightBaseBetaFirebaseUserStream() =>
     FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
@@ -59,7 +65,7 @@ Stream<BaseAuthUser> myFightBaseLearningProjektFirebaseUserStream() =>
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = MyFightBaseLearningProjektFirebaseUser(user);
+        currentUser = MyFightBaseBetaFirebaseUser(user);
         return currentUser!;
       },
     );

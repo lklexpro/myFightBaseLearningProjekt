@@ -1,8 +1,10 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -34,8 +36,9 @@ class RecentPostStruct extends FFFirebaseStruct {
         timePosted: data['timePosted'] as DateTime?,
       );
 
-  static RecentPostStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? RecentPostStruct.fromMap(data) : null;
+  static RecentPostStruct? maybeFromMap(dynamic data) => data is Map
+      ? RecentPostStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'postID': _postID,
@@ -66,6 +69,24 @@ class RecentPostStruct extends FFFirebaseStruct {
           data['timePosted'],
           ParamType.DateTime,
           false,
+        ),
+      );
+
+  static RecentPostStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      RecentPostStruct(
+        postID: convertAlgoliaParam(
+          data['postID'],
+          ParamType.DocumentReference,
+          false,
+        ),
+        timePosted: convertAlgoliaParam(
+          data['timePosted'],
+          ParamType.DateTime,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

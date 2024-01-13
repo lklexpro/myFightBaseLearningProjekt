@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -30,11 +31,6 @@ class EventsRecord extends FirestoreRecord {
   String? _eventDescription;
   String get eventDescription => _eventDescription ?? '';
   bool hasEventDescription() => _eventDescription != null;
-
-  // "event_location" field.
-  String? _eventLocation;
-  String get eventLocation => _eventLocation ?? '';
-  bool hasEventLocation() => _eventLocation != null;
 
   // "event_date" field.
   DateTime? _eventDate;
@@ -76,17 +72,6 @@ class EventsRecord extends FirestoreRecord {
   DateTime? get eventTimeEdited => _eventTimeEdited;
   bool hasEventTimeEdited() => _eventTimeEdited != null;
 
-  // "num_participants" field.
-  int? _numParticipants;
-  int get numParticipants => _numParticipants ?? 0;
-  bool hasNumParticipants() => _numParticipants != null;
-
-  // "event_participants" field.
-  List<ParticipatingUserStruct>? _eventParticipants;
-  List<ParticipatingUserStruct> get eventParticipants =>
-      _eventParticipants ?? const [];
-  bool hasEventParticipants() => _eventParticipants != null;
-
   // "creator_DisplayName" field.
   String? _creatorDisplayName;
   String get creatorDisplayName => _creatorDisplayName ?? '';
@@ -97,11 +82,51 @@ class EventsRecord extends FirestoreRecord {
   String get creatorPhotoURL => _creatorPhotoURL ?? '';
   bool hasCreatorPhotoURL() => _creatorPhotoURL != null;
 
+  // "event_location" field.
+  String? _eventLocation;
+  String get eventLocation => _eventLocation ?? '';
+  bool hasEventLocation() => _eventLocation != null;
+
+  // "event_locationStreet" field.
+  String? _eventLocationStreet;
+  String get eventLocationStreet => _eventLocationStreet ?? '';
+  bool hasEventLocationStreet() => _eventLocationStreet != null;
+
+  // "event_locationPostalCode" field.
+  String? _eventLocationPostalCode;
+  String get eventLocationPostalCode => _eventLocationPostalCode ?? '';
+  bool hasEventLocationPostalCode() => _eventLocationPostalCode != null;
+
+  // "event_locationCity" field.
+  String? _eventLocationCity;
+  String get eventLocationCity => _eventLocationCity ?? '';
+  bool hasEventLocationCity() => _eventLocationCity != null;
+
+  // "userInvitationData" field.
+  List<UserInvitationDataStruct>? _userInvitationData;
+  List<UserInvitationDataStruct> get userInvitationData =>
+      _userInvitationData ?? const [];
+  bool hasUserInvitationData() => _userInvitationData != null;
+
+  // "userList" field.
+  List<DocumentReference>? _userList;
+  List<DocumentReference> get userList => _userList ?? const [];
+  bool hasUserList() => _userList != null;
+
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  bool hasUid() => _uid != null;
+
+  // "event_attendeeLimit" field.
+  int? _eventAttendeeLimit;
+  int get eventAttendeeLimit => _eventAttendeeLimit ?? 0;
+  bool hasEventAttendeeLimit() => _eventAttendeeLimit != null;
+
   void _initializeFields() {
     _creator = snapshotData['creator'] as DocumentReference?;
     _eventName = snapshotData['event_name'] as String?;
     _eventDescription = snapshotData['event_description'] as String?;
-    _eventLocation = snapshotData['event_location'] as String?;
     _eventDate = snapshotData['event_date'] as DateTime?;
     _eventParticipationFee =
         castToType<double>(snapshotData['event_participation_fee']);
@@ -111,13 +136,20 @@ class EventsRecord extends FirestoreRecord {
     _eventIsExpired = snapshotData['event_isExpired'] as bool?;
     _eventTimeCreated = snapshotData['event_timeCreated'] as DateTime?;
     _eventTimeEdited = snapshotData['event_timeEdited'] as DateTime?;
-    _numParticipants = castToType<int>(snapshotData['num_participants']);
-    _eventParticipants = getStructList(
-      snapshotData['event_participants'],
-      ParticipatingUserStruct.fromMap,
-    );
     _creatorDisplayName = snapshotData['creator_DisplayName'] as String?;
     _creatorPhotoURL = snapshotData['creator_photoURL'] as String?;
+    _eventLocation = snapshotData['event_location'] as String?;
+    _eventLocationStreet = snapshotData['event_locationStreet'] as String?;
+    _eventLocationPostalCode =
+        snapshotData['event_locationPostalCode'] as String?;
+    _eventLocationCity = snapshotData['event_locationCity'] as String?;
+    _userInvitationData = getStructList(
+      snapshotData['userInvitationData'],
+      UserInvitationDataStruct.fromMap,
+    );
+    _userList = getDataList(snapshotData['userList']);
+    _uid = snapshotData['uid'] as String?;
+    _eventAttendeeLimit = castToType<int>(snapshotData['event_attendeeLimit']);
   }
 
   static CollectionReference get collection =>
@@ -157,7 +189,6 @@ Map<String, dynamic> createEventsRecordData({
   DocumentReference? creator,
   String? eventName,
   String? eventDescription,
-  String? eventLocation,
   DateTime? eventDate,
   double? eventParticipationFee,
   bool? eventIsPrivate,
@@ -165,16 +196,20 @@ Map<String, dynamic> createEventsRecordData({
   bool? eventIsExpired,
   DateTime? eventTimeCreated,
   DateTime? eventTimeEdited,
-  int? numParticipants,
   String? creatorDisplayName,
   String? creatorPhotoURL,
+  String? eventLocation,
+  String? eventLocationStreet,
+  String? eventLocationPostalCode,
+  String? eventLocationCity,
+  String? uid,
+  int? eventAttendeeLimit,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'creator': creator,
       'event_name': eventName,
       'event_description': eventDescription,
-      'event_location': eventLocation,
       'event_date': eventDate,
       'event_participation_fee': eventParticipationFee,
       'event_isPrivate': eventIsPrivate,
@@ -182,9 +217,14 @@ Map<String, dynamic> createEventsRecordData({
       'event_isExpired': eventIsExpired,
       'event_timeCreated': eventTimeCreated,
       'event_timeEdited': eventTimeEdited,
-      'num_participants': numParticipants,
       'creator_DisplayName': creatorDisplayName,
       'creator_photoURL': creatorPhotoURL,
+      'event_location': eventLocation,
+      'event_locationStreet': eventLocationStreet,
+      'event_locationPostalCode': eventLocationPostalCode,
+      'event_locationCity': eventLocationCity,
+      'uid': uid,
+      'event_attendeeLimit': eventAttendeeLimit,
     }.withoutNulls,
   );
 
@@ -200,7 +240,6 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
     return e1?.creator == e2?.creator &&
         e1?.eventName == e2?.eventName &&
         e1?.eventDescription == e2?.eventDescription &&
-        e1?.eventLocation == e2?.eventLocation &&
         e1?.eventDate == e2?.eventDate &&
         e1?.eventParticipationFee == e2?.eventParticipationFee &&
         e1?.eventIsPrivate == e2?.eventIsPrivate &&
@@ -209,10 +248,16 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.eventIsExpired == e2?.eventIsExpired &&
         e1?.eventTimeCreated == e2?.eventTimeCreated &&
         e1?.eventTimeEdited == e2?.eventTimeEdited &&
-        e1?.numParticipants == e2?.numParticipants &&
-        listEquality.equals(e1?.eventParticipants, e2?.eventParticipants) &&
         e1?.creatorDisplayName == e2?.creatorDisplayName &&
-        e1?.creatorPhotoURL == e2?.creatorPhotoURL;
+        e1?.creatorPhotoURL == e2?.creatorPhotoURL &&
+        e1?.eventLocation == e2?.eventLocation &&
+        e1?.eventLocationStreet == e2?.eventLocationStreet &&
+        e1?.eventLocationPostalCode == e2?.eventLocationPostalCode &&
+        e1?.eventLocationCity == e2?.eventLocationCity &&
+        listEquality.equals(e1?.userInvitationData, e2?.userInvitationData) &&
+        listEquality.equals(e1?.userList, e2?.userList) &&
+        e1?.uid == e2?.uid &&
+        e1?.eventAttendeeLimit == e2?.eventAttendeeLimit;
   }
 
   @override
@@ -220,7 +265,6 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.creator,
         e?.eventName,
         e?.eventDescription,
-        e?.eventLocation,
         e?.eventDate,
         e?.eventParticipationFee,
         e?.eventIsPrivate,
@@ -229,10 +273,16 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.eventIsExpired,
         e?.eventTimeCreated,
         e?.eventTimeEdited,
-        e?.numParticipants,
-        e?.eventParticipants,
         e?.creatorDisplayName,
-        e?.creatorPhotoURL
+        e?.creatorPhotoURL,
+        e?.eventLocation,
+        e?.eventLocationStreet,
+        e?.eventLocationPostalCode,
+        e?.eventLocationCity,
+        e?.userInvitationData,
+        e?.userList,
+        e?.uid,
+        e?.eventAttendeeLimit
       ]);
 
   @override

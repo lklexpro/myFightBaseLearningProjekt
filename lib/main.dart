@@ -8,6 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
+import 'backend/push_notifications/push_notifications_util.dart';
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -50,13 +51,15 @@ class _MyAppState extends State<MyApp> {
   late GoRouter _router;
 
   final authUserSub = authenticatedUserStream.listen((_) {});
+  final fcmTokenSub = fcmTokenUserStream.listen((_) {});
 
   @override
   void initState() {
     super.initState();
+
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = myFightBaseLearningProjektFirebaseUserStream()
+    userStream = myFightBaseBetaFirebaseUserStream()
       ..listen((user) => _appStateNotifier.update(user));
     jwtTokenStream.listen((_) {});
     Future.delayed(
@@ -68,7 +71,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void dispose() {
     authUserSub.cancel();
-
+    fcmTokenSub.cancel();
     super.dispose();
   }
 
@@ -83,7 +86,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'myFightBaseLearningProjekt',
+      title: 'myFightBase | Dein Kampfsport Netzwerk',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
@@ -97,7 +100,19 @@ class _MyAppState extends State<MyApp> {
       ],
       theme: ThemeData(
         brightness: Brightness.light,
-        scrollbarTheme: ScrollbarThemeData(),
+        scrollbarTheme: ScrollbarThemeData(
+          interactive: false,
+          thickness: MaterialStateProperty.all(3.0),
+          thumbColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.dragged)) {
+              return Color(4289480522);
+            }
+            if (states.contains(MaterialState.hovered)) {
+              return Color(4289480522);
+            }
+            return Color(4289480522);
+          }),
+        ),
       ),
       themeMode: _themeMode,
       routerConfig: _router,
@@ -131,10 +146,10 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': HomePageWidget(),
-      'PageAllChats': PageAllChatsWidget(),
-      'PageEvents': PageEventsWidget(),
+      'PageChatOverview': PageChatOverviewWidget(),
+      'PageSocialPostsFeed': PageSocialPostsFeedWidget(),
+      'PageEventList': PageEventListWidget(),
       'PageUserSearch': PageUserSearchWidget(),
-      'PageSocialPostsRecentPosts': PageSocialPostsRecentPostsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -179,11 +194,21 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
+              Icons.auto_awesome_mosaic_rounded,
+              size: 29.0,
+            ),
+            label: FFLocalizations.of(context).getText(
+              'bagmsrhi' /* Feed */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
               Icons.calendar_today_rounded,
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              'a76wo9p2' /* Feed */,
+              'yejdcai9' /* Home */,
             ),
             tooltip: '',
           ),
@@ -193,17 +218,7 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              's6usgov0' /* Home */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.auto_awesome_mosaic_rounded,
-              size: 29.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              '92ouykzr' /* Feed */,
+              'eydqje41' /* Home */,
             ),
             tooltip: '',
           )

@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -66,6 +67,26 @@ class PostsRecord extends FirestoreRecord {
   String get postUserAvatar => _postUserAvatar ?? '';
   bool hasPostUserAvatar() => _postUserAvatar != null;
 
+  // "post_visibilityState" field.
+  String? _postVisibilityState;
+  String get postVisibilityState => _postVisibilityState ?? '';
+  bool hasPostVisibilityState() => _postVisibilityState != null;
+
+  // "post_postedToUser" field.
+  DocumentReference? _postPostedToUser;
+  DocumentReference? get postPostedToUser => _postPostedToUser;
+  bool hasPostPostedToUser() => _postPostedToUser != null;
+
+  // "post_postedToUserDisplayName" field.
+  String? _postPostedToUserDisplayName;
+  String get postPostedToUserDisplayName => _postPostedToUserDisplayName ?? '';
+  bool hasPostPostedToUserDisplayName() => _postPostedToUserDisplayName != null;
+
+  // "post_type" field.
+  String? _postType;
+  String get postType => _postType ?? '';
+  bool hasPostType() => _postType != null;
+
   void _initializeFields() {
     _postPhoto = snapshotData['post_photo'] as String?;
     _postTitle = snapshotData['post_title'] as String?;
@@ -77,6 +98,11 @@ class PostsRecord extends FirestoreRecord {
     _numVotes = castToType<int>(snapshotData['num_votes']);
     _postUserDisplayName = snapshotData['post_userDisplayName'] as String?;
     _postUserAvatar = snapshotData['post_userAvatar'] as String?;
+    _postVisibilityState = snapshotData['post_visibilityState'] as String?;
+    _postPostedToUser = snapshotData['post_postedToUser'] as DocumentReference?;
+    _postPostedToUserDisplayName =
+        snapshotData['post_postedToUserDisplayName'] as String?;
+    _postType = snapshotData['post_type'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -122,6 +148,10 @@ Map<String, dynamic> createPostsRecordData({
   int? numVotes,
   String? postUserDisplayName,
   String? postUserAvatar,
+  String? postVisibilityState,
+  DocumentReference? postPostedToUser,
+  String? postPostedToUserDisplayName,
+  String? postType,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -134,6 +164,10 @@ Map<String, dynamic> createPostsRecordData({
       'num_votes': numVotes,
       'post_userDisplayName': postUserDisplayName,
       'post_userAvatar': postUserAvatar,
+      'post_visibilityState': postVisibilityState,
+      'post_postedToUser': postPostedToUser,
+      'post_postedToUserDisplayName': postPostedToUserDisplayName,
+      'post_type': postType,
     }.withoutNulls,
   );
 
@@ -155,7 +189,11 @@ class PostsRecordDocumentEquality implements Equality<PostsRecord> {
         e1?.numComments == e2?.numComments &&
         e1?.numVotes == e2?.numVotes &&
         e1?.postUserDisplayName == e2?.postUserDisplayName &&
-        e1?.postUserAvatar == e2?.postUserAvatar;
+        e1?.postUserAvatar == e2?.postUserAvatar &&
+        e1?.postVisibilityState == e2?.postVisibilityState &&
+        e1?.postPostedToUser == e2?.postPostedToUser &&
+        e1?.postPostedToUserDisplayName == e2?.postPostedToUserDisplayName &&
+        e1?.postType == e2?.postType;
   }
 
   @override
@@ -169,7 +207,11 @@ class PostsRecordDocumentEquality implements Equality<PostsRecord> {
         e?.numComments,
         e?.numVotes,
         e?.postUserDisplayName,
-        e?.postUserAvatar
+        e?.postUserAvatar,
+        e?.postVisibilityState,
+        e?.postPostedToUser,
+        e?.postPostedToUserDisplayName,
+        e?.postType
       ]);
 
   @override

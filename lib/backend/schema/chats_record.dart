@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -52,6 +53,25 @@ class ChatsRecord extends FirestoreRecord {
       _lastMessageSeenBy ?? const [];
   bool hasLastMessageSeenBy() => _lastMessageSeenBy != null;
 
+  // "last_message_sent_by_displayName" field.
+  String? _lastMessageSentByDisplayName;
+  String get lastMessageSentByDisplayName =>
+      _lastMessageSentByDisplayName ?? '';
+  bool hasLastMessageSentByDisplayName() =>
+      _lastMessageSentByDisplayName != null;
+
+  // "last_message_seen_by_displayName" field.
+  String? _lastMessageSeenByDisplayName;
+  String get lastMessageSeenByDisplayName =>
+      _lastMessageSeenByDisplayName ?? '';
+  bool hasLastMessageSeenByDisplayName() =>
+      _lastMessageSeenByDisplayName != null;
+
+  // "isGroupChat" field.
+  bool? _isGroupChat;
+  bool get isGroupChat => _isGroupChat ?? false;
+  bool hasIsGroupChat() => _isGroupChat != null;
+
   // "groupChatName" field.
   String? _groupChatName;
   String get groupChatName => _groupChatName ?? '';
@@ -66,6 +86,11 @@ class ChatsRecord extends FirestoreRecord {
     _lastMessageSentBy =
         snapshotData['last_message_sent_by'] as DocumentReference?;
     _lastMessageSeenBy = getDataList(snapshotData['last_message_seen_by']);
+    _lastMessageSentByDisplayName =
+        snapshotData['last_message_sent_by_displayName'] as String?;
+    _lastMessageSeenByDisplayName =
+        snapshotData['last_message_seen_by_displayName'] as String?;
+    _isGroupChat = snapshotData['isGroupChat'] as bool?;
     _groupChatName = snapshotData['groupChatName'] as String?;
   }
 
@@ -108,6 +133,9 @@ Map<String, dynamic> createChatsRecordData({
   String? lastMessage,
   DateTime? lastMessageTime,
   DocumentReference? lastMessageSentBy,
+  String? lastMessageSentByDisplayName,
+  String? lastMessageSeenByDisplayName,
+  bool? isGroupChat,
   String? groupChatName,
 }) {
   final firestoreData = mapToFirestore(
@@ -117,6 +145,9 @@ Map<String, dynamic> createChatsRecordData({
       'last_message': lastMessage,
       'last_message_time': lastMessageTime,
       'last_message_sent_by': lastMessageSentBy,
+      'last_message_sent_by_displayName': lastMessageSentByDisplayName,
+      'last_message_seen_by_displayName': lastMessageSeenByDisplayName,
+      'isGroupChat': isGroupChat,
       'groupChatName': groupChatName,
     }.withoutNulls,
   );
@@ -137,6 +168,9 @@ class ChatsRecordDocumentEquality implements Equality<ChatsRecord> {
         e1?.lastMessageTime == e2?.lastMessageTime &&
         e1?.lastMessageSentBy == e2?.lastMessageSentBy &&
         listEquality.equals(e1?.lastMessageSeenBy, e2?.lastMessageSeenBy) &&
+        e1?.lastMessageSentByDisplayName == e2?.lastMessageSentByDisplayName &&
+        e1?.lastMessageSeenByDisplayName == e2?.lastMessageSeenByDisplayName &&
+        e1?.isGroupChat == e2?.isGroupChat &&
         e1?.groupChatName == e2?.groupChatName;
   }
 
@@ -149,6 +183,9 @@ class ChatsRecordDocumentEquality implements Equality<ChatsRecord> {
         e?.lastMessageTime,
         e?.lastMessageSentBy,
         e?.lastMessageSeenBy,
+        e?.lastMessageSentByDisplayName,
+        e?.lastMessageSeenByDisplayName,
+        e?.isGroupChat,
         e?.groupChatName
       ]);
 

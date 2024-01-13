@@ -1,8 +1,10 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -90,10 +92,9 @@ class UserRelationDataStruct extends FFFirebaseStruct {
         relationLabels: getDataList(data['relationLabels']),
       );
 
-  static UserRelationDataStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? UserRelationDataStruct.fromMap(data)
-          : null;
+  static UserRelationDataStruct? maybeFromMap(dynamic data) => data is Map
+      ? UserRelationDataStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'userID': _userID,
@@ -186,6 +187,54 @@ class UserRelationDataStruct extends FFFirebaseStruct {
           data['relationLabels'],
           ParamType.String,
           true,
+        ),
+      );
+
+  static UserRelationDataStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      UserRelationDataStruct(
+        userID: convertAlgoliaParam(
+          data['userID'],
+          ParamType.String,
+          false,
+        ),
+        userDocRef: convertAlgoliaParam(
+          data['userDocRef'],
+          ParamType.DocumentReference,
+          false,
+        ),
+        userDisplayName: convertAlgoliaParam(
+          data['userDisplayName'],
+          ParamType.String,
+          false,
+        ),
+        userAvatar: convertAlgoliaParam(
+          data['userAvatar'],
+          ParamType.String,
+          false,
+        ),
+        relationCreatedAt: convertAlgoliaParam(
+          data['relationCreatedAt'],
+          ParamType.DateTime,
+          false,
+        ),
+        relationType: convertAlgoliaParam(
+          data['relationType'],
+          ParamType.String,
+          false,
+        ),
+        relationStatus: convertAlgoliaParam(
+          data['relationStatus'],
+          ParamType.String,
+          false,
+        ),
+        relationLabels: convertAlgoliaParam<String>(
+          data['relationLabels'],
+          ParamType.String,
+          true,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

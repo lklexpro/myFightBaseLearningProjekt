@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -36,6 +37,11 @@ class PostsCommentsRecord extends FirestoreRecord {
   String get commentUserName => _commentUserName ?? '';
   bool hasCommentUserName() => _commentUserName != null;
 
+  // "likes" field.
+  List<DocumentReference>? _likes;
+  List<DocumentReference> get likes => _likes ?? const [];
+  bool hasLikes() => _likes != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -43,6 +49,7 @@ class PostsCommentsRecord extends FirestoreRecord {
     _timePosted = snapshotData['time_posted'] as DateTime?;
     _commentDescription = snapshotData['comment_description'] as String?;
     _commentUserName = snapshotData['comment_user_name'] as String?;
+    _likes = getDataList(snapshotData['likes']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -108,10 +115,12 @@ class PostsCommentsRecordDocumentEquality
 
   @override
   bool equals(PostsCommentsRecord? e1, PostsCommentsRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.commentUser == e2?.commentUser &&
         e1?.timePosted == e2?.timePosted &&
         e1?.commentDescription == e2?.commentDescription &&
-        e1?.commentUserName == e2?.commentUserName;
+        e1?.commentUserName == e2?.commentUserName &&
+        listEquality.equals(e1?.likes, e2?.likes);
   }
 
   @override
@@ -119,7 +128,8 @@ class PostsCommentsRecordDocumentEquality
         e?.commentUser,
         e?.timePosted,
         e?.commentDescription,
-        e?.commentUserName
+        e?.commentUserName,
+        e?.likes
       ]);
 
   @override

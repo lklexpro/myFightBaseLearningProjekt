@@ -1,25 +1,29 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/chats/chat_page/chat_page_widget.dart';
+import '/common_widgets/search_bar/search_bar_widget.dart';
 import '/flutter_flow/chat/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'page_create_group_chat_widget.dart' show PageCreateGroupChatWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class PageCreateGroupChatModel extends FlutterFlowModel {
+class PageCreateGroupChatModel
+    extends FlutterFlowModel<PageCreateGroupChatWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  // Model for searchBar component.
+  late SearchBarModel searchBarModel;
   // State field(s) for inputField_groupName widget.
+  FocusNode? inputFieldGroupNameFocusNode;
   TextEditingController? inputFieldGroupNameController;
   String? Function(BuildContext, String?)?
       inputFieldGroupNameControllerValidator;
@@ -37,10 +41,13 @@ class PageCreateGroupChatModel extends FlutterFlowModel {
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    searchBarModel = createModel(context, () => SearchBarModel());
+  }
 
   void dispose() {
-    textController1?.dispose();
+    searchBarModel.dispose();
+    inputFieldGroupNameFocusNode?.dispose();
     inputFieldGroupNameController?.dispose();
   }
 

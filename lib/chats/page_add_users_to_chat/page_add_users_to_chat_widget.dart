@@ -1,11 +1,15 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
+import '/common_widgets/search_bar/search_bar_widget.dart';
 import '/flutter_flow/chat/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/user_lists/comp_user_list/comp_user_list_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +39,7 @@ class _PageAddUsersToChatWidgetState extends State<PageAddUsersToChatWidget> {
     super.initState();
     _model = createModel(context, () => PageAddUsersToChatModel());
 
-    _model.textController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -47,6 +51,15 @@ class _PageAddUsersToChatWidgetState extends State<PageAddUsersToChatWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -75,7 +88,7 @@ class _PageAddUsersToChatWidgetState extends State<PageAddUsersToChatWidget> {
           children: [
             Text(
               FFLocalizations.of(context).getText(
-                'bhe8hpzf' /* Gruppenchat erstellen */,
+                'bhe8hpzf' /* Nutzer hinzufügen */,
               ),
               style: FlutterFlowTheme.of(context).titleMedium.override(
                     fontFamily: 'Lexend Deca',
@@ -86,7 +99,7 @@ class _PageAddUsersToChatWidgetState extends State<PageAddUsersToChatWidget> {
             ),
             Text(
               FFLocalizations.of(context).getText(
-                'qccsjtes' /* Wähle Nutzer für einen Gruppen... */,
+                'qccsjtes' /* Wähle Nutzer für den Gruppench... */,
               ),
               style: FlutterFlowTheme.of(context).bodySmall.override(
                     fontFamily: 'Lexend Deca',
@@ -104,171 +117,209 @@ class _PageAddUsersToChatWidgetState extends State<PageAddUsersToChatWidget> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Container(
-            width: double.infinity,
-            height: 50.0,
-            decoration: BoxDecoration(
-              color: Color(0xFFDBE2E7),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 3.0,
-                  color: Color(0x33000000),
-                  offset: Offset(0.0, 2.0),
-                )
-              ],
-              borderRadius: BorderRadius.circular(0.0),
-            ),
-            alignment: AlignmentDirectional(0.0, 0.0),
-            child: TextFormField(
-              controller: _model.textController,
-              obscureText: false,
-              decoration: InputDecoration(
-                hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Lexend Deca',
-                      color: Color(0xFF95A1AC),
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(4.0),
-                    topRight: Radius.circular(4.0),
-                  ),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(4.0),
-                    topRight: Radius.circular(4.0),
-                  ),
-                ),
-                errorBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(4.0),
-                    topRight: Radius.circular(4.0),
-                  ),
-                ),
-                focusedErrorBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(4.0),
-                    topRight: Radius.circular(4.0),
-                  ),
-                ),
-                contentPadding:
-                    EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 0.0, 0.0),
-                prefixIcon: Icon(
-                  Icons.search_outlined,
-                  color: Color(0xFF95A1AC),
-                  size: 24.0,
-                ),
-              ),
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Lexend Deca',
-                    color: Color(0xFF95A1AC),
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.normal,
-                  ),
-              maxLines: null,
-              validator: _model.textControllerValidator.asValidator(context),
+          wrapWithModel(
+            model: _model.searchBarModel,
+            updateCallback: () => setState(() {}),
+            child: SearchBarWidget(
+              userSearchAction: () async {},
             ),
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-              child: StreamBuilder<List<AllUsersRecord>>(
-                stream: queryAllUsersRecord(
-                  limit: 50,
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+              child: StreamBuilder<List<UserFollowersRecord>>(
+                stream: queryUserFollowersRecord(
+                  parent: currentUserReference,
+                  singleRecord: true,
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: SpinKitThreeBounce(
+                        width: 20.0,
+                        height: 20.0,
+                        child: SpinKitChasingDots(
                           color: Color(0xFFCF2E2E),
-                          size: 50.0,
+                          size: 20.0,
                         ),
                       ),
                     );
                   }
-                  List<AllUsersRecord> listViewAllUsersRecordList =
+                  List<UserFollowersRecord> listViewUserFollowersRecordList =
                       snapshot.data!;
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: listViewAllUsersRecordList.length,
-                    itemBuilder: (context, listViewIndex) {
-                      final listViewAllUsersRecord =
-                          listViewAllUsersRecordList[listViewIndex];
-                      return Stack(
-                        children: [
-                          CompUserListWidget(
-                            key: Key(
-                                'Keyqlw_${listViewIndex}_of_${listViewAllUsersRecordList.length}'),
-                            documentUser: listViewAllUsersRecord,
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
+                  // Return an empty Container when the item does not exist.
+                  if (snapshot.data!.isEmpty) {
+                    return Container();
+                  }
+                  final listViewUserFollowersRecord =
+                      listViewUserFollowersRecordList.isNotEmpty
+                          ? listViewUserFollowersRecordList.first
+                          : null;
+                  return Builder(
+                    builder: (context) {
+                      final followerUserData =
+                          listViewUserFollowersRecord?.userData?.toList() ?? [];
+                      return ListView.builder(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: followerUserData.length,
+                        itemBuilder: (context, followerUserDataIndex) {
+                          final followerUserDataItem =
+                              followerUserData[followerUserDataIndex];
+                          return Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 16.0, 0.0),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 0.3,
-                                decoration: BoxDecoration(),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 8.0, 16.0, 8.0),
-                                    child: Theme(
-                                      data: ThemeData(
-                                        unselectedWidgetColor:
-                                            FlutterFlowTheme.of(context)
-                                                .alternate,
-                                      ),
-                                      child: CheckboxListTile(
-                                        value: _model.checkboxListTileValueMap[
-                                            listViewAllUsersRecord] ??= false,
-                                        onChanged: (newValue) async {
-                                          setState(() =>
-                                              _model.checkboxListTileValueMap[
-                                                      listViewAllUsersRecord] =
-                                                  newValue!);
-                                        },
-                                        activeColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                        checkColor: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        dense: false,
-                                        controlAffinity:
-                                            ListTileControlAffinity.trailing,
-                                      ),
+                                  0.0, 4.0, 0.0, 0.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, -1.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(35.0),
+                                              child: Image.network(
+                                                valueOrDefault<String>(
+                                                  followerUserDataItem
+                                                      .userAvatar,
+                                                  'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133351928-stock-illustration-default-placeholder-man-and-woman.jpg',
+                                                ),
+                                                width: 35.0,
+                                                height: 35.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Theme(
+                                              data: ThemeData(
+                                                checkboxTheme:
+                                                    CheckboxThemeData(
+                                                  visualDensity:
+                                                      VisualDensity.standard,
+                                                  materialTapTargetSize:
+                                                      MaterialTapTargetSize
+                                                          .padded,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            25),
+                                                  ),
+                                                ),
+                                                unselectedWidgetColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                              ),
+                                              child: CheckboxListTile(
+                                                value: _model
+                                                        .checkboxListTileValueMap[
+                                                    followerUserDataItem] ??= false,
+                                                onChanged: (newValue) async {
+                                                  setState(() => _model
+                                                              .checkboxListTileValueMap[
+                                                          followerUserDataItem] =
+                                                      newValue!);
+                                                },
+                                                title: Text(
+                                                  valueOrDefault<String>(
+                                                    followerUserDataItem
+                                                        .userDisplayName,
+                                                    'Unbekannter Nutzer',
+                                                  ),
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontSize: 16.0,
+                                                      ),
+                                                ),
+                                                subtitle: Text(
+                                                  valueOrDefault<String>(
+                                                    followerUserDataItem
+                                                        .relationType,
+                                                    'Unbekannte Beziehung',
+                                                  ),
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        fontSize: 12.0,
+                                                      ),
+                                                ),
+                                                tileColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                activeColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                checkColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                dense: false,
+                                                controlAffinity:
+                                                    ListTileControlAffinity
+                                                        .trailing,
+                                                contentPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(15.0, 0.0,
+                                                            0.0, 0.0),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16.0),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          );
+                        },
                       );
                     },
                   );
@@ -297,13 +348,24 @@ class _PageAddUsersToChatWidgetState extends State<PageAddUsersToChatWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  _model.groupChat =
-                      await FFChatManager.instance.addGroupMembers(
-                    widget.chatDocument!,
-                    _model.checkboxListTileCheckedItems
-                        .map((e) => e.reference)
-                        .toList(),
-                  );
+                  while (_model.countUserToInviteToGroupchat <
+                      _model.checkboxListTileCheckedItems.length) {
+                    _model.followerUserDocRef =
+                        await AllUsersRecord.getDocumentOnce(_model
+                            .checkboxListTileCheckedItems[
+                                _model.countUserToInviteToGroupchat]
+                            .userDocRef!);
+                    _model.groupChat =
+                        await FFChatManager.instance.addGroupMembers(
+                      widget.chatDocument!,
+                      [_model.followerUserDocRef!.reference],
+                    );
+                    _model.countUserToInviteToGroupchat =
+                        _model.countUserToInviteToGroupchat + 1;
+                  }
+                  setState(() {
+                    _model.countUserToInviteToGroupchat = 0;
+                  });
 
                   setState(() {});
                 },

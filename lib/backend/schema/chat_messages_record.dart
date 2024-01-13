@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -41,12 +42,18 @@ class ChatMessagesRecord extends FirestoreRecord {
   DateTime? get timestamp => _timestamp;
   bool hasTimestamp() => _timestamp != null;
 
+  // "user_displayName" field.
+  String? _userDisplayName;
+  String get userDisplayName => _userDisplayName ?? '';
+  bool hasUserDisplayName() => _userDisplayName != null;
+
   void _initializeFields() {
     _user = snapshotData['user'] as DocumentReference?;
     _chat = snapshotData['chat'] as DocumentReference?;
     _text = snapshotData['text'] as String?;
     _image = snapshotData['image'] as String?;
     _timestamp = snapshotData['timestamp'] as DateTime?;
+    _userDisplayName = snapshotData['user_displayName'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -89,6 +96,7 @@ Map<String, dynamic> createChatMessagesRecordData({
   String? text,
   String? image,
   DateTime? timestamp,
+  String? userDisplayName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -97,6 +105,7 @@ Map<String, dynamic> createChatMessagesRecordData({
       'text': text,
       'image': image,
       'timestamp': timestamp,
+      'user_displayName': userDisplayName,
     }.withoutNulls,
   );
 
@@ -113,12 +122,13 @@ class ChatMessagesRecordDocumentEquality
         e1?.chat == e2?.chat &&
         e1?.text == e2?.text &&
         e1?.image == e2?.image &&
-        e1?.timestamp == e2?.timestamp;
+        e1?.timestamp == e2?.timestamp &&
+        e1?.userDisplayName == e2?.userDisplayName;
   }
 
   @override
-  int hash(ChatMessagesRecord? e) => const ListEquality()
-      .hash([e?.user, e?.chat, e?.text, e?.image, e?.timestamp]);
+  int hash(ChatMessagesRecord? e) => const ListEquality().hash(
+      [e?.user, e?.chat, e?.text, e?.image, e?.timestamp, e?.userDisplayName]);
 
   @override
   bool isValidKey(Object? o) => o is ChatMessagesRecord;

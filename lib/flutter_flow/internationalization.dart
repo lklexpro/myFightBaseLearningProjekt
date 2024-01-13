@@ -107,129 +107,215 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // HomePage
   {
+    'b5fmf3d2': {
+      'de': 'Aktuelle Version: 12-01-24, HIER KLICKEN',
+      'en': 'Tap here for Changelog Information.',
+    },
     'atsfyhzf': {
       'de': 'Willkommen, ',
-      'en': '',
+      'en': 'Welcome',
     },
     '3fn11tbb': {
       'de': '!',
-      'en': '',
+      'en': '!',
     },
-    'uoorzfj9': {
+    'tg8k08x7': {
       'de': '',
       'en': '',
     },
-    'un8eurt0': {
+    'j6dr9x4w': {
       'de': ' Neuigkeiten!',
-      'en': '',
+      'en': 'News',
     },
-    '49bc9bk5': {
-      'de': 'Verein verwalten ',
-      'en': '',
+    'tb4swdan': {
+      'de': 'Deinen Verein verwalten',
+      'en': 'Manage your Organization',
     },
-    'qf7doq2j': {
-      'de': '',
-      'en': '',
+    'fwrkmvc2': {
+      'de': 'Zu deinem Vereins-Kanal',
+      'en': 'Open Organization Channel',
     },
-    'xxbasmid': {
-      'de': '',
-      'en': '',
+    'ogaqp9w2': {
+      'de': 'Deine Mitgliedschaften',
+      'en': 'Your Memberships',
     },
-    'm1kq5his': {
-      'de': 'Mitglieder-Übersicht',
-      'en': '',
+    'i39g0hmq': {
+      'de': 'Anstehende Veranstaltungen',
+      'en': 'Upcoming Events',
     },
-    'kkkzvvtd': {
-      'de': 'Event erstellen',
-      'en': '',
-    },
-    's2kt2poc': {
-      'de': 'Ankündigung erstellen',
-      'en': '',
-    },
-    'ineiigi9': {
-      'de': 'Deine anstehenden Termine',
-      'en': '',
+    'o5xyebry': {
+      'de': ',  ',
+      'en': ',',
     },
     'ugwu3oks': {
       'de': 'Home',
-      'en': '',
+      'en': 'Home',
     },
   },
   // PageAuthentication
   {
     '2y7k81q5': {
       'de': 'Login zu myFightBase',
-      'en': '',
+      'en': 'Log In in myFightBase',
     },
     'ih5vso5b': {
-      'de': 'Email Address',
-      'en': '',
+      'de': 'Email',
+      'en': 'Email',
     },
     '41g8e69u': {
-      'de': 'Password',
-      'en': '',
+      'de': 'Passwort',
+      'en': 'Password',
     },
     '2s53kky1': {
-      'de': 'LOGIN',
-      'en': '',
+      'de': 'Einloggen',
+      'en': 'Log In',
     },
     'nqzqja26': {
-      'de': 'NOCH KEIN ACCOUNT? KLICKE HIER',
-      'en': '',
+      'de': 'NOCH KEINEN ACCOUNT? ',
+      'en': 'NO ACCOUNT YET?',
+    },
+    'r3wkeo2o': {
+      'de': 'Dann registriere dich jetzt',
+      'en': 'Register Now',
+    },
+    'ym3jdrvn': {
+      'de': 'ZUR REGISTRIERUNG',
+      'en': 'SIGN UP',
     },
   },
   // PageRegisterAccount
   {
-    'jqx97v76': {
+    'sueyz0z0': {
       'de': 'Melde dich jetzt an! ',
       'en': '',
     },
-    'o0fe1nzu': {
-      'de': 'Werde Teil der FightBase-Community!',
+    'k9i250hl': {
+      'de': 'und werde Teil der FightBase-Community!',
       'en': '',
     },
-    '5jw2zb1d': {
-      'de': 'Du möchtest deinen Verein Registrieren?',
+    'jtwxhwfz': {
+      'de': 'Du möchtest deinen Verein organisieren? Dann hier entlang!',
       'en': '',
     },
-    '29kel4oz': {
-      'de': 'Dann klicke ',
-      'en': '',
-    },
-    'pubgbvwg': {
-      'de': 'HIER',
-      'en': '',
-    },
-    'yw8in50h': {
+    'nhhbf1jk': {
       'de': 'Email',
       'en': '',
     },
-    '4y9wlru1': {
-      'de': 'Vorname',
+    'lug22ypr': {
+      'de': 'E-Mail Adresse',
       'en': '',
     },
-    'f8aj090t': {
-      'de': 'Nachname',
-      'en': '',
-    },
-    '4wkqhyjm': {
+    'lvq57dnj': {
       'de': 'Passwort',
       'en': '',
     },
-    '7ranwert': {
+    'dn82j7x5': {
+      'de': '---',
+      'en': '',
+    },
+    'dycvurmg': {
       'de': 'Passwort bestätigen',
       'en': '',
     },
-    'is9z9nov': {
-      'de': 'Jetzt registrieren',
+    'ihip1pek': {
+      'de': '---',
       'en': '',
     },
-    'i3lkoebe': {
+    '2l61zo9v': {
+      'de': 'Vorname',
+      'en': '',
+    },
+    '5smzvb3x': {
+      'de': 'Dein Vorname',
+      'en': '',
+    },
+    'gqs9nn07': {
+      'de': 'Nachname',
+      'en': '',
+    },
+    'gtulqedh': {
+      'de': 'Dein Nachname',
+      'en': '',
+    },
+    'l32ph9ui': {
+      'de': 'Wähle deine Sportart',
+      'en': '',
+    },
+    '1kp3runk': {
+      'de': 'Gewichtsklasse suchen',
+      'en': '',
+    },
+    'y8hqp5kg': {
+      'de': 'Zustimmung AGB',
+      'en': '',
+    },
+    '38r11bq2': {
+      'de':
+          'Ich akzeptiere die allgemein geltenden Geschäftsbedingungen sowie Datenschutzvereinbarung.',
+      'en': '',
+    },
+    'sqztushv': {
+      'de': 'Zustimmung Datenschutzvereinbarung',
+      'en': '',
+    },
+    '9fsc06v2': {
+      'de':
+          'Ich akzeptiere die allgemein geltenden Geschäftsbedingungen sowie Datenschutzvereinbarung.',
+      'en': '',
+    },
+    'eooap5w9': {
+      'de': 'Registrierung abschließen',
+      'en': '',
+    },
+    'k9x6uh1w': {
+      'de': 'Bitte eine gültige E-Mail Adresse angeben.',
+      'en': '',
+    },
+    'glsml2nr': {
+      'de': 'E-Mail ungültig',
+      'en': '',
+    },
+    'gwyyuolb': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'ct53351h': {
+      'de': 'Passwort benötigt.',
+      'en': '',
+    },
+    'km03csz7': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    '2j1r9fvg': {
+      'de': 'Bitte Passwort wiederholen.',
+      'en': '',
+    },
+    'rq0sasmz': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'vkt3emd0': {
+      'de': 'Bitte Vornamen eintragen.',
+      'en': '',
+    },
+    'g6ravrql': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'am05gf4i': {
+      'de': 'Bitte Nachnamen eintragen.',
+      'en': '',
+    },
+    'a5mdtgva': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'e2787mbc': {
       'de': 'Du hast bereits einen Account? ',
       'en': '',
     },
-    '8m5ky68r': {
+    'emkvimkh': {
       'de': 'EINLOGGEN',
       'en': '',
     },
@@ -241,7 +327,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // PageAllUsers
   {
     'v9z674th': {
-      'de': 'Mitglieder finden',
+      'de': 'Alle aktuellen Nutzer',
       'en': '',
     },
     'jjuwwrv3': {
@@ -255,60 +341,88 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PageUserProfile
   {
-    'ai6p6msj': {
+    'dwfabmir': {
+      'de': 'Dies ist dein eigenes Profil. Klicken um zu bearbeiten.',
+      'en': '',
+    },
+    'r23eejbj': {
+      'de': 'Einladung beantworten.',
+      'en': '',
+    },
+    'nr1gpkvk': {
+      'de': 'Dieser Nutzer hat dich blockiert.',
+      'en': '',
+    },
+    '52an3yge': {
+      'de': 'Aktives Mitglied bei:',
+      'en': '',
+    },
+    'hohytcot': {
       'de': 'Folgt',
       'en': '',
     },
-    '3wnfho77': {
+    'xs7iy3ye': {
       'de': 'Gefolgt',
       'en': '',
     },
-    '7bca8gqa': {
+    'aa5jrcyt': {
       'de': 'Mitglieder',
       'en': '',
     },
-    'bmf3szcp': {
-      'de': 'Gewicht',
+    '0kznqip2': {
+      'de': 'Kampfstatistiken',
       'en': '',
     },
-    'im0tx9r6': {
-      'de': '100 kg',
+    'n6wm9hqb': {
+      'de': 'Kämpfe Ingesamt',
       'en': '',
     },
-    '0bkcizu3': {
-      'de': 'Größe',
+    'a6f9g37c': {
+      'de': 'Gewonnen',
       'en': '',
     },
-    'g57oejja': {
-      'de': '190 cm',
+    '8mnvh5lq': {
+      'de': 'Verloren',
       'en': '',
     },
-    'e5s6f6fy': {
-      'de': 'Klasse.',
+    '775aesnx': {
+      'de': 'Unentschieden',
       'en': '',
     },
-    '8mxjull5': {
-      'de': 'Kl. 2',
-      'en': '',
-    },
-    'ujoru28d': {
+    'vowz4f3l': {
       'de': 'Über Mich',
       'en': '',
     },
-    'n73r47xu': {
-      'de': 'Logged in as Organization:',
+    'jryciqwa': {
+      'de': 'Kontakt:',
       'en': '',
     },
-    'kcu96cm9': {
-      'de': 'user is member:',
+    'zrzibrcv': {
+      'de': 'Galerie',
       'en': '',
     },
-    'n5qlnzta': {
-      'de': 'user is followed:',
+    's88lwp62': {
+      'de': 'Diesen Nutzer blockieren',
       'en': '',
     },
-    'otnbma66': {
-      'de': 'user is blocked:',
+    'fh28zluv': {
+      'de': 'Nutzer nicht mehr blocken',
+      'en': '',
+    },
+    'vbyl35mj': {
+      'de': 'Verein verlassen',
+      'en': '',
+    },
+    '5szywwj7': {
+      'de': 'Vereinseinladung zurückziehen',
+      'en': '',
+    },
+    'n019e907': {
+      'de': 'Zum Verein einladen',
+      'en': '',
+    },
+    's7pihf16': {
+      'de': 'Aus dem Verein entfernen',
       'en': '',
     },
     'e21ngn2i': {
@@ -322,32 +436,120 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': 'Anzeigenamen ändern:',
       'en': '',
     },
+    'cuqu4fi6': {
+      'de': '...',
+      'en': '',
+    },
     'dvdg4n5m': {
       'de': 'Deine E-Mail ändern:',
+      'en': '',
+    },
+    '3sxygxjl': {
+      'de': '...',
       'en': '',
     },
     '6rpvk01y': {
       'de': 'Deine Beschreibung ändern (\"Über Mich\"):',
       'en': '',
     },
+    '533lo5t5': {
+      'de': '...',
+      'en': '',
+    },
+    '5m2ydljc': {
+      'de': 'Adresse ändern:',
+      'en': '',
+    },
+    '683zkmms': {
+      'de': '...',
+      'en': '',
+    },
+    'ciobnlpt': {
+      'de': 'Postleitzahl',
+      'en': '',
+    },
+    'hrap08g8': {
+      'de': '...',
+      'en': '',
+    },
+    'l8u2ypu4': {
+      'de': 'Stadt',
+      'en': '',
+    },
+    'zsth0ocp': {
+      'de': '...',
+      'en': '',
+    },
+    '7om89zup': {
+      'de': 'Telefonnummer: ',
+      'en': '',
+    },
+    'zuqvwp10': {
+      'de': '...',
+      'en': '',
+    },
+    'qjrc64rq': {
+      'de': 'Öffentliche Kontakt E-Mail: ',
+      'en': '',
+    },
+    't8jnyknf': {
+      'de': '...',
+      'en': '',
+    },
     'hjmm127f': {
       'de': 'Deinen Vornamen ändern:',
+      'en': '',
+    },
+    '2z5x8s4q': {
+      'de': '...',
       'en': '',
     },
     '3fg1f6kf': {
       'de': 'Deinen Nachnamen ändern:',
       'en': '',
     },
+    'swgm2o2x': {
+      'de': '...',
+      'en': '',
+    },
+    'a466nvvp': {
+      'de': 'Sportart auswählen',
+      'en': '',
+    },
+    'i8z7bdgb': {
+      'de': 'Search for an item...',
+      'en': '',
+    },
+    '1n8dgbco': {
+      'de': 'Gewichtsklasse auswählen',
+      'en': '',
+    },
+    'uxnr12zf': {
+      'de': 'Gewichtsklasse suchen',
+      'en': '',
+    },
     'gzmbpvzg': {
       'de': 'Größe (cm)',
+      'en': '',
+    },
+    'oylqr5me': {
+      'de': '...',
       'en': '',
     },
     'gvr41k9u': {
       'de': 'Gewicht (kg)',
       'en': '',
     },
+    's25pel25': {
+      'de': '...',
+      'en': '',
+    },
     '9b138qlw': {
-      'de': 'Änderungen Speichern',
+      'de': ' Speichern',
+      'en': '',
+    },
+    'dxhvpogn': {
+      'de': 'Profil bearbeiten',
       'en': '',
     },
     '0ch06llk': {
@@ -355,30 +557,54 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // PageEventDetails
+  // PageEventDetailPage
   {
-    'bmzm934r': {
+    'fgkwp3o6': {
       'de': 'Veranstaltet von:',
       'en': '',
     },
-    'qovv0udx': {
-      'de': 'Event Location',
+    'o64ahjf4': {
+      'de': '(',
       'en': '',
     },
-    'pxo09dai': {
-      'de': '💵 Teilnahmegebühr: ',
+    'y9b0409i': {
+      'de': ')',
       'en': '',
     },
-    'grlzt8kt': {
-      'de': '🎫 Registrierung: ',
+    'jcx0q7ga': {
+      'de': ', ',
       'en': '',
     },
-    '2aipa885': {
-      'de': 'Parking',
+    'bmzm934r': {
+      'de': 'Beschreibung:',
       'en': '',
     },
-    '5waxe6z9': {
-      'de': '249 spots remaining',
+    '42mponhw': {
+      'de': 'Details:',
+      'en': '',
+    },
+    'a6v2dbjz': {
+      'de': ' Öffentliche Veranstaltung',
+      'en': '',
+    },
+    'p8zxx06c': {
+      'de': ' Teilenahmgebühr / Eintrittspreis: ',
+      'en': '',
+    },
+    'b4hdo1ql': {
+      'de': '€',
+      'en': '',
+    },
+    'g98gpw9j': {
+      'de': ' Registrierung / Anmeldung erforderlich',
+      'en': '',
+    },
+    'elgvn4kz': {
+      'de': 'Verfügbare Plätze: ',
+      'en': '',
+    },
+    'xdnuy7hr': {
+      'de': ' von ',
       'en': '',
     },
     'hl5ydqli': {
@@ -389,12 +615,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': ' ',
       'en': '',
     },
-    'uhylh40z': {
-      'de': 'Friends attending',
+    'nf1hr2ax': {
+      'de': ' | Bearbeitet am: ',
       'en': '',
     },
-    'a6dm8g6w': {
-      'de': 'Teilenehmen',
+    'uhylh40z': {
+      'de': 'Zusagen: ',
+      'en': '',
+    },
+    'bhup542z': {
+      'de': 'Bisher noch keine Zusagen. Sei der Erste!',
+      'en': '',
+    },
+    'buqtvf0o': {
+      'de': 'Veranstaltung',
       'en': '',
     },
     's6e7bdg4': {
@@ -402,35 +636,35 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // PageSocialPostDetails
+  // PageSocialPostDetailPage
   {
-    'wtg5dien': {
-      'de': '3',
+    'svthut2y': {
+      'de': 'vor ',
       'en': '',
     },
-    'ekndmvr6': {
-      'de': 'likes',
+    '4acxwgmu': {
+      'de': ' • ',
       'en': '',
     },
-    'u9bt5l36': {
-      'de': 'Kommentare',
-      'en': '',
-    },
-    '2skgwlex': {
+    'inv33tce': {
       'de': 'Sandra Smith',
       'en': '',
     },
-    'tzz0x5jt': {
+    'msr5vmzk': {
       'de':
           'I\'m not really sure about this section here aI think you should do soemthing cool!',
       'en': '',
     },
-    'aon5zijn': {
+    'yskvvi4j': {
       'de': 'a min ago',
       'en': '',
     },
-    'ht6z7ka7': {
+    'fdc1cfmm': {
       'de': 'Kommentieren',
+      'en': '',
+    },
+    'bq1kl0ey': {
+      'de': 'Post',
       'en': '',
     },
     '60v0uccx': {
@@ -438,68 +672,139 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // PageSocialPosts
-  {
-    '6m2edmgg': {
-      'de': 'Feed',
-      'en': '',
-    },
-  },
   // PageRegisterAccountOrganization
   {
-    'alp47ds7': {
-      'de': 'Verein registrieren',
+    'bkmzldgr': {
+      'de': 'Melde dich jetzt an! ',
       'en': '',
     },
-    '3g2knetn': {
-      'de': 'Registriere deinen Verein bei FightBase!',
+    '3blfhish': {
+      'de': 'und werde Teil der FightBase-Community!',
       'en': '',
     },
-    'xggj0iil': {
+    '6dm4w6ek': {
       'de': 'Email',
       'en': '',
     },
-    'sngaxk08': {
-      'de': 'Vereinsname',
+    '3nzvfdmt': {
+      'de': 'E-Mail Adresse',
       'en': '',
     },
-    '26wz9qnl': {
-      'de': 'Sportverein',
+    '4i9h8zfw': {
+      'de': 'Passwort',
       'en': '',
     },
-    'l2cyz1kd': {
-      'de': 'Fitnessstudio',
+    'oq2t8anx': {
+      'de': '---',
       'en': '',
     },
-    'aguos8jn': {
-      'de': 'Gemeinnütziger Verein',
+    'vhufggrl': {
+      'de': 'Passwort bestätigen',
       'en': '',
     },
-    'q17h4rct': {
-      'de': 'Art des Vereins',
+    '2oljql9r': {
+      'de': '---',
       'en': '',
     },
-    'mqttin0v': {
+    'of7244cq': {
+      'de': 'Name',
+      'en': '',
+    },
+    'bi79la7h': {
+      'de': 'Name deiner Organisation',
+      'en': '',
+    },
+    'f3bqa5j4': {
+      'de': 'Fitnesstudio',
+      'en': '',
+    },
+    '0trtz1n4': {
+      'de': 'Sportclub',
+      'en': '',
+    },
+    'f32m517a': {
+      'de': 'Verein',
+      'en': '',
+    },
+    'jo8e0zsh': {
+      'de': 'Non-Profit',
+      'en': '',
+    },
+    'a68mf3id': {
+      'de': 'Bitte auswählen',
+      'en': '',
+    },
+    '8a3if2ts': {
       'de': 'Search for an item...',
       'en': '',
     },
-    'zootyrqr': {
-      'de': 'Password',
+    'uhxqmryn': {
+      'de': 'Zustimmung AGB',
       'en': '',
     },
-    'fr1vxkf2': {
-      'de': 'Confirm Password',
+    'x280eisz': {
+      'de':
+          'Ich akzeptiere die allgemein geltenden Geschäftsbedingungen sowie Datenschutzvereinbarung.',
       'en': '',
     },
-    'ksm3qwav': {
-      'de': 'Jetzt registrieren',
+    'y5gpbzon': {
+      'de': 'Zustimmung Datenschutzvereinbarung',
       'en': '',
     },
-    '1btiv7p1': {
+    'pbrrq00o': {
+      'de':
+          'Ich akzeptiere die allgemein geltenden Geschäftsbedingungen sowie Datenschutzvereinbarung.',
+      'en': '',
+    },
+    'kw3rb2yb': {
+      'de': 'Registrierung abschließen',
+      'en': '',
+    },
+    '6e6w7tbr': {
+      'de': 'Bitte E-Mail Adresse eintragen.',
+      'en': '',
+    },
+    '3vb4zkz3': {
+      'de': 'E-Mail Adresse ist ungültig.',
+      'en': '',
+    },
+    '6jrl4eq0': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'uyf594mu': {
+      'de': 'Bitte Passwort eintragen.',
+      'en': '',
+    },
+    'zuzzmvn6': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'ju5p4k7w': {
+      'de': 'Bitte Passwort wiederholen.',
+      'en': '',
+    },
+    '23uujn9z': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'oqlltbxq': {
+      'de': 'Bitte Namen eintragen.',
+      'en': '',
+    },
+    '8pqwhl3p': {
+      'de': 'Ungültiger Name.',
+      'en': '',
+    },
+    'kyawmeeb': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'lrumyp87': {
       'de': 'Du hast bereits einen Account? ',
       'en': '',
     },
-    'zaggneow': {
+    'q3wxym9n': {
       'de': 'EINLOGGEN',
       'en': '',
     },
@@ -510,8 +815,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PageUsersFollows
   {
-    '201bx54c': {
-      'de': 'Search members...',
+    '2tyfnox8': {
+      'de': 'Folgt',
       'en': '',
     },
     'q432j8df': {
@@ -523,44 +828,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // PageEvents
-  {
-    'a76wo9p2': {
-      'de': 'Feed',
-      'en': '',
-    },
-  },
-  // PageUserSearch
-  {
-    '9f4n17av': {
-      'de': 'Namen eingeben',
-      'en': '',
-    },
-    'b8uzh1kg': {
-      'de': 'Suchergebnisse:',
-      'en': '',
-    },
-    'gfsoiwv9': {
-      'de': 'Meine Vereinsmitglieder',
-      'en': '',
-    },
-    'fhq0sv09': {
-      'de': 'DEBUG: Show ALL Users',
-      'en': '',
-    },
-    's6usgov0': {
-      'de': 'Home',
-      'en': '',
-    },
-  },
   // PageAddUsersToChat
   {
     'bhe8hpzf': {
-      'de': 'Gruppenchat erstellen',
+      'de': 'Nutzer hinzufügen',
       'en': '',
     },
     'qccsjtes': {
-      'de': 'Wähle Nutzer für einen Gruppenchat aus',
+      'de': 'Wähle Nutzer für den Gruppenchat aus',
       'en': '',
     },
     'lor00mb8': {
@@ -568,7 +843,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // PageAllChats
+  // PageChatOverview
   {
     'du8jc3pj': {
       'de': 'Nachrichten',
@@ -577,8 +852,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PageUsersFollowers
   {
-    'pva86e55': {
-      'de': 'Search members...',
+    'wqgxw1iy': {
+      'de': 'Follower',
       'en': '',
     },
     'tftx0doy': {
@@ -600,8 +875,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': 'Wähle Nutzer für einen Gruppenchat aus',
       'en': '',
     },
-    'tv4f2a54': {
-      'de': 'Bitte einen Gruppennamen vergeben...',
+    '0pk504bs': {
+      'de': 'Bitte einen Gruppennamen vergeben.',
       'en': '',
     },
     'cgp4r85d': {
@@ -609,29 +884,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // PageNotifications
-  {
-    '5d6xj1yz': {
-      'de': 'Annehmen',
-      'en': '',
-    },
-    '4kt4veyk': {
-      'de': 'Ablehnen',
-      'en': '',
-    },
-    'rsoaivy0': {
-      'de': 'Home',
-      'en': '',
-    },
-  },
   // PageUsersMember
   {
     '3bti2i3x': {
       'de': 'Vereinsmitglieder',
-      'en': '',
-    },
-    'axu2x6c2': {
-      'de': 'Search members...',
       'en': '',
     },
     '6fnajd9b': {
@@ -645,108 +901,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PageManageMembers
   {
-    'f3zuzhfd': {
-      'de': 'Vereinsmitglieder',
-      'en': '',
-    },
-    '3jxfzl70': {
-      'de': 'Sticky Header Three',
-      'en': '',
-    },
-    'yd7plfib': {
-      'de': 'A',
-      'en': '',
-    },
-    'zjw3dsmo': {
-      'de': 'List Item',
-      'en': '',
-    },
-    'lh2fano3': {
-      'de': 'A',
-      'en': '',
-    },
-    'az2ze2c9': {
-      'de': 'List Item',
-      'en': '',
-    },
-    'nrxvm0ft': {
-      'de': 'A',
-      'en': '',
-    },
-    'nitdynd9': {
-      'de': 'List Item',
-      'en': '',
-    },
-    'pcki6q8a': {
-      'de': 'A',
-      'en': '',
-    },
-    'xyqri7xo': {
-      'de': 'List Item',
-      'en': '',
-    },
-    'vxfs7kbg': {
-      'de': 'A',
-      'en': '',
-    },
-    '7t8jp1et': {
-      'de': 'List Item',
-      'en': '',
-    },
-    'x1q9hckh': {
-      'de': 'Sticky Header Four',
-      'en': '',
-    },
-    'bszx3fwy': {
-      'de': 'A',
-      'en': '',
-    },
-    '7xtt2c4a': {
-      'de': 'List Item',
-      'en': '',
-    },
-    'cdl8eimb': {
-      'de': 'A',
-      'en': '',
-    },
-    'gibvuz2x': {
-      'de': 'List Item',
-      'en': '',
-    },
-    'suhid20l': {
-      'de': 'A',
-      'en': '',
-    },
-    '1snrf3ik': {
-      'de': 'List Item',
-      'en': '',
-    },
-    'jooqbuto': {
-      'de': 'A',
-      'en': '',
-    },
-    'oar3vq0a': {
-      'de': 'List Item',
-      'en': '',
-    },
-    '2j4mcws2': {
-      'de': 'A',
-      'en': '',
-    },
-    'xpavq7if': {
-      'de': 'List Item',
-      'en': '',
-    },
-    '5t9ls71y': {
-      'de': 'A',
-      'en': '',
-    },
-    'lj6zzcd2': {
-      'de': 'List Item',
-      'en': '',
-    },
     'lcpavpb4': {
-      'de': 'Mitglieder',
+      'de': 'Mitglieder verwalten',
+      'en': '',
+    },
+    'yol2hgui': {
+      'de': 'Halte den Eintrag gedrückt um das Mitglied zu bearbeiten',
+      'en': '',
+    },
+    'h6vqavjz': {
+      'de': 'Mitglieder in deinem Verein: ',
+      'en': '',
+    },
+    'p4vip3xa': {
+      'de': 'Ausstehende Einladung',
       'en': '',
     },
     'u59nv8kh': {
@@ -754,130 +922,494 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // PageOrgProfileEdit
+  // PageNotifications
   {
-    'neg9izhi': {
-      'de': 'Anzeigenamen ändern:',
+    'p9dwnpan': {
+      'de': 'Benachrichtigungen',
       'en': '',
     },
-    'ubwu8z3k': {
-      'de': 'Deine E-Mail ändern:',
+    'xuqz01zf': {
+      'de': 'Benachrichtigungsverlauf',
       'en': '',
     },
-    'q5g98ge4': {
-      'de': 'Deine Beschreibung ändern (\"Über Mich\"):',
-      'en': '',
-    },
-    't04xfidk': {
-      'de': 'Adresse ändern:',
-      'en': '',
-    },
-    'gtxmhwgr': {
-      'de': 'Telefonnummer: ',
-      'en': '',
-    },
-    'f3cqgnub': {
-      'de': 'Änderungen Speichern',
-      'en': '',
-    },
-    'li1hbkdj': {
-      'de': 'My Profile',
+    '9mnmz135': {
+      'de': 'Home',
       'en': '',
     },
   },
-  // managemebr
+  // PageSocialPostsFeed
   {
-    'sujl1ie5': {
-      'de': 'Search members...',
-      'en': '',
-    },
-    'zochhouq': {
-      'de': 'Club Management',
-      'en': '',
-    },
-    'i5qbit8l': {
-      'de': 'Membership Plans',
-      'en': '',
-    },
-    'wv6inkj1': {
-      'de': 'Manage membership plans',
-      'en': '',
-    },
-    'wxk1nlr1': {
-      'de': 'Create, edit, and delete membership plans',
-      'en': '',
-    },
-    'rk8u5qy7': {
-      'de': 'Member List',
-      'en': '',
-    },
-    'y56vosvu': {
-      'de': 'Manage club members',
-      'en': '',
-    },
-    'mvd4mojg': {
-      'de': 'View, add, and remove club members',
-      'en': '',
-    },
-    'hkflukr5': {
-      'de': 'Events',
-      'en': '',
-    },
-    'xdn12840': {
-      'de': 'Manage club events',
-      'en': '',
-    },
-    't79wzeqb': {
-      'de': 'Create, edit, and delete club events',
-      'en': '',
-    },
-    '7216x9kn': {
-      'de': 'Facilities',
-      'en': '',
-    },
-    'zf5fb809': {
-      'de': 'Manage club facilities',
-      'en': '',
-    },
-    '949yd4hy': {
-      'de': 'Add, edit, and remove club facilities',
-      'en': '',
-    },
-    'vf7bdagn': {
-      'de': 'Sports Club',
-      'en': '',
-    },
-  },
-  // PageSocialPostsRecentPosts
-  {
-    '92ouykzr': {
+    'bagmsrhi': {
       'de': 'Feed',
       'en': '',
     },
   },
-  // CompSocialPost
+  // PageEventList
   {
-    'ligfxwgt': {
+    '3v0n6jke': {
+      'de': 'Eigene Veranstaltungen verwalten',
+      'en': '',
+    },
+    '3g6ayvin': {
+      'de': 'Anstehend',
+      'en': '',
+    },
+    '4nkesi6u': {
+      'de': 'Eingeladen',
+      'en': '',
+    },
+    '1asl6y88': {
+      'de': 'Öffentliche',
+      'en': '',
+    },
+    'yejdcai9': {
+      'de': 'Home',
+      'en': '',
+    },
+  },
+  // PageEventOrganizationList
+  {
+    'x1xi3gsb': {
+      'de': 'Anstehend',
+      'en': '',
+    },
+    'ttjrxzjg': {
+      'de': 'Alle',
+      'en': '',
+    },
+    'tmaiqsn9': {
+      'de': 'Home',
+      'en': '',
+    },
+  },
+  // PageEventEdit
+  {
+    'dounmyrb': {
+      'de': 'Foto hinzufügen',
+      'en': '',
+    },
+    'd6xdny2y': {
+      'de': 'Füge deiner Veranstaltung ein Foto hinzu',
+      'en': '',
+    },
+    '7jqlgj46': {
+      'de': 'Weiteres Foto',
+      'en': '',
+    },
+    '3e6czv90': {
+      'de': 'Weiteres Foto',
+      'en': '',
+    },
+    'blgxs1zl': {
+      'de': 'Veranstaltungsname',
+      'en': '',
+    },
+    'um0h8chh': {
+      'de': 'Name deiner Veranstaltung',
+      'en': '',
+    },
+    '05yj444d': {
+      'de': 'Beschreibung',
+      'en': '',
+    },
+    'z0z0rlxd': {
+      'de': 'Beschreibung und Veranstaltungsdetails ',
+      'en': '',
+    },
+    's2j879xt': {
+      'de': 'Datum',
+      'en': '',
+    },
+    '6vo74g4d': {
+      'de': 'Veranstaltungsort',
+      'en': '',
+    },
+    'vpnqylf1': {
+      'de': 'z.B.  \"Fightbase Gym\" oder \"Trainingshalle\"',
+      'en': '',
+    },
+    'jso7jbp5': {
+      'de': 'Adresse des Veranstaltungsorts',
+      'en': '',
+    },
+    'du6oggps': {
+      'de': 'z.B. Freies Training, Boxkampf, Tag der offenen Tür',
+      'en': '',
+    },
+    '9bdqlnjg': {
+      'de': 'Postleitzahl',
+      'en': '',
+    },
+    'kon65b23': {
+      'de': 'Postleitzahl',
+      'en': '',
+    },
+    'zedj1lkx': {
+      'de': 'Stadt',
+      'en': '',
+    },
+    'm6ajjsia': {
+      'de': 'Stadt',
+      'en': '',
+    },
+    'n9ryapj7': {
+      'de': 'Maximale Teilnehmer',
+      'en': '',
+    },
+    '7bzmc423': {
+      'de': 'Personen',
+      'en': '',
+    },
+    'upu0t4ke': {
+      'de': 'Trage hier die maximal erlaubte Anzahl an Teilnehmern ein. ',
+      'en': '',
+    },
+    'unskwgdm': {
+      'de': 'Teilnahmegebühr / Eintrittspreis',
+      'en': '',
+    },
+    'eebh98ip': {
+      'de': 'Eintrittspreis',
+      'en': '',
+    },
+    'lq28gvxi': {
+      'de':
+          'Teilnahmegebühr. Trage 0,00€ ein, wenn die Teilnahme kostenlos ist.',
+      'en': '',
+    },
+    'dd7ciseo': {
+      'de': '€',
+      'en': '',
+    },
+    'fvp88idw': {
+      'de': 'Anmeldung Notwendig',
+      'en': '',
+    },
+    'kje1sypu': {
+      'de': 'Öffentliche Veranstaltung',
+      'en': '',
+    },
+    'dmh0qnke': {
+      'de': 'Speichern',
+      'en': '',
+    },
+    'oj61uule': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'pjvncgvn': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    '7bqk3cq3': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'j3lkld2m': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    '7nvf5q33': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'gmpnakhz': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'q6rmn5q4': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'vyqaznv5': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'nn823y2b': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    '1spab3kb': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'wp830oub': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'qw1pvsiv': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'qasyck32': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'm2b3qqmk': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'hg9fnhfq': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'sy6df5h0': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'dkh2zlvl': {
+      'de': 'Veranstaltung bearbeiten',
+      'en': '',
+    },
+    '3jgf918q': {
+      'de': 'Home',
+      'en': '',
+    },
+  },
+  // PageBroadcastDetailPage
+  {
+    'i4wdfvqg': {
+      'de': 'Broadcast von:',
+      'en': '',
+    },
+    '8fytdtea': {
+      'de': 'Übermittelt an:',
+      'en': '',
+    },
+    'alxkshdj': {
+      'de': 'Nachricht als gelesen markiert.',
+      'en': '',
+    },
+    'c7dhksm9': {
+      'de': 'Broadcast',
+      'en': '',
+    },
+    'xhf7gdf4': {
+      'de': 'Home',
+      'en': '',
+    },
+  },
+  // PageBroadcastOverview
+  {
+    'vy9jhp2y': {
+      'de': 'Dein Broadcast-Verlauf',
+      'en': '',
+    },
+    'qe981u3g': {
+      'de': 'Home',
+      'en': '',
+    },
+  },
+  // PageUserSearch
+  {
+    'hgkr4tbz': {
+      'de': 'Alle',
+      'en': '',
+    },
+    'b52u355u': {
+      'de': 'Suchergebnisse:',
+      'en': '',
+    },
+    '7gj0kf85': {
+      'de': 'Personen',
+      'en': '',
+    },
+    's1jwb05n': {
+      'de': 'Suchergebnisse:',
+      'en': '',
+    },
+    'hgcpq8y4': {
+      'de': 'Vereine',
+      'en': '',
+    },
+    '3ao9lrww': {
+      'de': 'Suchergebnisse:',
+      'en': '',
+    },
+    'n19smbpw': {
+      'de': 'Zuletzt angesehen:',
+      'en': '',
+    },
+    '9ycfjhl5': {
+      'de': '   ',
+      'en': '',
+    },
+    'eydqje41': {
+      'de': 'Home',
+      'en': '',
+    },
+  },
+  // PageRegisterFlow
+  {
+    'hkpwx6u4': {
+      'de': 'Melde dich jetzt an! ',
+      'en': '',
+    },
+    'w2j8jz87': {
+      'de': 'und werde Teil der FightBase-Community!',
+      'en': '',
+    },
+    'n6r29si1': {
+      'de': 'Teile deine Erfolge mit Freunden',
+      'en': '',
+    },
+    'vcxwoctu': {
+      'de': 'Verwalte Veranstaltungen',
+      'en': '',
+    },
+    '7wpp4v8v': {
+      'de': 'Verwalte und organsiere\ndeine Vereins-Mitglieder',
+      'en': '',
+    },
+    'fl3vxmdm': {
+      'de': 'Verwalte und organsiere\ndeine Vereins-Mitglieder',
+      'en': '',
+    },
+    'fulzvoua': {
+      'de': 'Verwalte und organsiere\ndeine Vereins-Mitglieder',
+      'en': '',
+    },
+    'h6ls4lc4': {
+      'de': 'Du hast bereits einen Account? ',
+      'en': '',
+    },
+    'l7eh4y0s': {
+      'de': 'EINLOGGEN',
+      'en': '',
+    },
+    '9n7ocggh': {
+      'de': 'register',
+      'en': '',
+    },
+  },
+  // PageOrganizationCommunity
+  {
+    'tx0bh5ed': {
+      'de': 'Vereins-Kanal',
+      'en': '',
+    },
+    'vdn5hc3r': {
+      'de': 'Aktuelle Hinweise & Informationen:',
+      'en': '',
+    },
+    'hihw68ec': {
+      'de': 'Gruppeninhalte',
+      'en': '',
+    },
+    'k7lgp6nv': {
+      'de': 'Veranstaltungen',
+      'en': '',
+    },
+    'hs68ours': {
+      'de': 'My Profile',
+      'en': '',
+    },
+  },
+  // PageUserProfileCopy
+  {
+    'vtt17xnu': {
+      'de': 'Dies ist dein eigenes Profil. Klicken um zu bearbeiten.',
+      'en': '',
+    },
+    'vbv46f5x': {
+      'de': 'Einladung beantworten.',
+      'en': '',
+    },
+    '7mrllvv8': {
+      'de': 'Dieser Nutzer hat dich blockiert.',
+      'en': '',
+    },
+    '4hqiegxc': {
+      'de': 'Aktives Mitglied bei:',
+      'en': '',
+    },
+    '4az7cvzd': {
+      'de': 'Folgt',
+      'en': '',
+    },
+    '0gyar2qq': {
+      'de': 'Gefolgt',
+      'en': '',
+    },
+    'my1pzcz9': {
+      'de': 'Mitglieder',
+      'en': '',
+    },
+    'i84p41p7': {
+      'de': 'Kampfstatistiken',
+      'en': '',
+    },
+    '7lyev5ey': {
+      'de': 'Kämpfe Ingesamt',
+      'en': '',
+    },
+    'v5c0a6im': {
+      'de': 'Gewonnen',
+      'en': '',
+    },
+    'hyt5w6o1': {
+      'de': 'Verloren',
+      'en': '',
+    },
+    'vblt7rlk': {
+      'de': 'Unentschieden',
+      'en': '',
+    },
+    '9esy2yhk': {
+      'de': 'Über Mich',
+      'en': '',
+    },
+    'klyrudlm': {
+      'de': 'Kontakt:',
+      'en': '',
+    },
+    'ps18ghb4': {
+      'de': 'Galerie',
+      'en': '',
+    },
+    '7gpxegcg': {
+      'de': 'My Profile',
+      'en': '',
+    },
+  },
+  // ChatNew
+  {
+    'k36u0irv': {
+      'de': '',
+      'en': '',
+    },
+    'acbvp8a7': {
+      'de': 'Nachricht ',
+      'en': '',
+    },
+    'i7o5tduf': {
+      'de': 'Home',
+      'en': '',
+    },
+  },
+  // CompPostList
+  {
+    'uakcut7o': {
       'de': ' • ',
       'en': '',
     },
-    'u0pz4dfy': {
-      'de': '4',
+    'f7s3z8jp': {
+      'de': 'Gepostet in ',
       'en': '',
     },
   },
   // CompPostActionSheet
   {
     'd0jcojiq': {
-      'de': 'Edit Post',
+      'de': 'Bearbeiten',
       'en': '',
     },
-    'tadcijd8': {
-      'de': 'Delete Story',
+    '9vs8cvih': {
+      'de': 'Löschen',
       'en': '',
     },
     '8jlzi8or': {
-      'de': 'Cancel',
+      'de': 'Abbrechen',
       'en': '',
     },
   },
@@ -895,12 +1427,28 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': 'Füge deiner Veranstaltung ein Foto hinzu',
       'en': '',
     },
+    '8pmkiv9f': {
+      'de': 'Weiteres Foto',
+      'en': '',
+    },
+    'ew6t7ubl': {
+      'de': 'Weiteres Foto',
+      'en': '',
+    },
+    'tonegfww': {
+      'de': 'Veranstaltungsname',
+      'en': '',
+    },
     'sq4zt045': {
       'de': 'Name deiner Veranstaltung',
       'en': '',
     },
-    '5z51m3fv': {
+    'tgvkqbbg': {
       'de': 'Beschreibung',
+      'en': '',
+    },
+    'd3i3tt0n': {
+      'de': 'z.B. Freies Training, Boxkampf, Tag der offenen Tür',
       'en': '',
     },
     '7nv00kea': {
@@ -908,102 +1456,184 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'b5covozj': {
-      'de': 'Ort',
+      'de': 'Veranstaltungsort',
       'en': '',
     },
-    'h8wfyg6b': {
-      'de': 'Private Veranstaltung',
+    '51myac7d': {
+      'de': 'Name / Bezeichnung (z.B. \"Fightbase Gym\")',
       'en': '',
     },
-    '55f1ef1d': {
-      'de': 'refresh page',
+    '7nnp4kmb': {
+      'de': 'Adresse des Veranstaltungsortes',
       'en': '',
     },
-    'uiu32qqz': {
-      'de': 'Vereinsmitglieder einladen: ',
+    'soclw971': {
+      'de': 'Straße & Hausnummer',
       'en': '',
     },
-    '5gs11a5a': {
-      'de': 'Weitere Personen einladen: ',
+    '8pcjobkm': {
+      'de': 'Postleitzahl',
+      'en': '',
+    },
+    'i5ev5mz0': {
+      'de': '123456',
+      'en': '',
+    },
+    'mlqrkqni': {
+      'de': 'Stadt',
+      'en': '',
+    },
+    'fhkcdgeo': {
+      'de': 'Eventstadt',
+      'en': '',
+    },
+    'x2olaaze': {
+      'de': 'Maximale Teilnehmer',
+      'en': '',
+    },
+    'e6ng0jh6': {
+      'de': 'Personen',
+      'en': '',
+    },
+    '3ah0nspn': {
+      'de': 'Trage hier die maximal erlaubte Anzahl an Teilnehmern ein. ',
       'en': '',
     },
     'oqm6685y': {
-      'de': 'Anmeldung Notwendig',
+      'de': 'Teilnahmegebühr / Eintrittspreis',
       'en': '',
     },
     'hbm4dscr': {
-      'de': 'Teilnahmegebühr',
+      'de': 'Eintrittspreis',
       'en': '',
     },
-    'wvzz3o5c': {
-      'de': 'Speichern',
+    'j81zrej3': {
+      'de':
+          'Teilnahmegebühr. Trage 0,00€ ein, wenn die Teilnahme kostenlos ist.',
       'en': '',
     },
-    '3zn2idg1': {
+    'dnq4mus7': {
+      'de': '0,00',
+      'en': '',
+    },
+    '5hmz9avm': {
+      'de': '€',
+      'en': '',
+    },
+    'by340nqf': {
+      'de': 'Anmeldung Notwendig',
+      'en': '',
+    },
+    '996bi0xf': {
+      'de': 'Öffentliche Veranstaltung',
+      'en': '',
+    },
+    '7uyu3dny': {
+      'de':
+          'Nur eingeladene Personen können dieses Event sehen oder daran teilnehmen.',
+      'en': '',
+    },
+    'zg75dc76': {
+      'de': 'Einladen',
+      'en': '',
+    },
+    '3l0otvtf': {
+      'de': 'Mitglieder: ',
+      'en': '',
+    },
+    'kyl765vs': {
+      'de': 'Follower: ',
+      'en': '',
+    },
+    'jnf4p9e8': {
+      'de': 'Event Erstellen',
+      'en': 'Save Event',
+    },
+    't4od4xyq': {
+      'de': 'Bitte Namen eintragen',
+      'en': '',
+    },
+    'gk9v5cc3': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'bm44155m': {
+      'de': 'Bitte Beschreibung eintragen',
+      'en': '',
+    },
+    'tt4loaqx': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    '8aq3mmmq': {
       'de': 'Field is required',
       'en': '',
     },
-    '9o3rk3oc': {
-      'de': 'Please enter a real name',
-      'en': '',
-    },
-    'kcwz5cub': {
+    'aoo8o0lv': {
       'de': 'Please choose an option from the dropdown',
       'en': '',
     },
-    '8i028kxc': {
-      'de': 'Please enter a short desription',
-      'en': '',
-    },
-    'rwep7fb2': {
-      'de': 'Please choose an option from the dropdown',
-      'en': '',
-    },
-    'jzxajmi7': {
-      'de': 'We have to have a URL for the project.',
-      'en': '',
-    },
-    'v0gyktri': {
-      'de': 'Please enter a valid URL...',
-      'en': '',
-    },
-    'ohkhpt55': {
-      'de': 'Please choose an option from the dropdown',
-      'en': '',
-    },
-    'auq2mgp4': {
+    'rcqjbx15': {
       'de': 'Field is required',
       'en': '',
     },
-    'gv7jycoe': {
+    'rlkal2fy': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'vs99d8us': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    '5fx6ehm8': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'iwxc4pvz': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    '20vyegal': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'wpb5rf8g': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    '3iirpa8t': {
       'de': 'Please choose an option from the dropdown',
       'en': '',
     },
   },
   // CompCreatePost
   {
-    'qmul6lyo': {
-      'de': 'Teile deine News!',
+    '1l38nd29': {
+      'de': 'Einen Post erstellen',
       'en': '',
     },
-    's1nloga5': {
+    'pizt320e': {
+      'de': 'Was möchtest du Teilen?',
+      'en': '',
+    },
+    '67te2ra8': {
+      'de': '....',
+      'en': '',
+    },
+    '690pjs79': {
       'de': 'Öffentlich',
       'en': '',
     },
-    '5k38ynlp': {
-      'de': 'Freunde & Vereinsmitglieder',
+    'suejr4yx': {
+      'de': 'Nur Mitglieder',
       'en': '',
     },
-    'ja06t8vr': {
-      'de': 'Nur Vereinsmitglieder',
+    'brhad5nu': {
+      'de': 'Wer darf diesen Inhalt sehen?',
       'en': '',
     },
-    'zcrkkvqw': {
-      'de': 'Nur Freunde',
-      'en': '',
-    },
-    'tkdzaxwo': {
-      'de': 'Was möchtest du teilen?',
+    'xddoxg1r': {
+      'de': 'Search for an item...',
       'en': '',
     },
     'rux22ma0': {
@@ -1013,20 +1643,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // CompEvent
   {
-    'v5d1nlby': {
-      'de': '',
+    'qvyw0vbp': {
+      'de': 'Details:',
       'en': '',
     },
-    'vz0p8a4m': {
-      'de': ' ',
+    '470ayu5p': {
+      'de': ' Öffentliche Veranstaltung',
       'en': '',
     },
-    'zfo4jtvx': {
-      'de': '💵',
+    'h6kz0r36': {
+      'de': ' Teilenahmgebühr / Eintrittspreis: ',
       'en': '',
     },
-    '2jd37ktq': {
-      'de': '🎫',
+    '4qubwoux': {
+      'de': '€',
+      'en': '',
+    },
+    'fdyza2qq': {
+      'de': ' Registrierung / Anmeldung erforderlich',
+      'en': '',
+    },
+    'shst00h5': {
+      'de': 'Verfügbare Plätze: ',
+      'en': '',
+    },
+    'tb16estd': {
+      'de': ' von ',
       'en': '',
     },
     'a1y5ajle': {
@@ -1034,22 +1676,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'y6nat9rz': {
-      'de': '4',
+      'de': '0',
       'en': '',
     },
     '5zen9zgs': {
-      'de': '4',
+      'de': '0',
       'en': '',
     },
   },
   // CompCreateComment
   {
-    'c4a4nr8s': {
-      'de': 'Kommentieren',
+    '1orohbx1': {
+      'de': 'Kommentar verfassen',
       'en': '',
     },
-    'zqps4gy6': {
-      'de': 'Was möchtest du teilen?',
+    'ocsmzfqs': {
+      'de': 'Verfasse einen Kommentar.',
+      'en': '',
+    },
+    'trm0k1r7': {
+      'de': '...',
       'en': '',
     },
     'w4m94kza': {
@@ -1057,10 +1703,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
+  // CompUserListUserDocument
+  {
+    '24x0gez2': {
+      'de': ' ',
+      'en': '',
+    },
+  },
   // CompCreateNewChat
   {
-    '52m4prkp': {
-      'de': 'Neuen Chat erstellen',
+    't5skpqxf': {
+      'de': 'Einen Chat starten',
       'en': '',
     },
     'bj78kdmm': {
@@ -1091,7 +1744,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // CompEmptyList
+  // CompEmptyPage
   {
     'jsul59q4': {
       'de': 'Hier gibt\'s nichts zu sehen!',
@@ -1103,9 +1756,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
+  // CompUserListRelationData
+  {
+    '0gw1a4d2': {
+      'de': 'Mitglied seit ',
+      'en': '',
+    },
+  },
   // CompAccountDropdown
   {
-    '42y7r7g0': {
+    'apxqg4ao': {
       'de': 'Dein Account',
       'en': '',
     },
@@ -1115,6 +1775,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kmv37fyz': {
       'de': 'Mein Profil bearbeiten',
+      'en': '',
+    },
+    'umdqw9ux': {
+      'de': 'QR Code scannen',
+      'en': '',
+    },
+    '48hh5xud': {
+      'de': 'Abbruch',
       'en': '',
     },
     'ltpbwzeh': {
@@ -1129,140 +1797,722 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // CompUserSelection
+  // CompMemberManagementMenu
   {
-    'vrszbvhd': {
-      'de': 'Mitglieder einladen',
+    '8lo0522a': {
+      'de': 'Mitglied bearbeiten',
       'en': '',
     },
-    '4tg759nl': {
-      'de': 'Namen eingeben',
+    '6tqoel3n': {
+      'de': 'Nachricht senden',
       'en': '',
     },
-    'gg3pzfeq': {
-      'de': 'Suchergebnisse:',
+    '9gv4biil': {
+      'de': 'Benachrichtigung senden',
       'en': '',
     },
-    'ohpwpa5s': {
-      'de': 'Alle Follower',
+    'pvpq1zja': {
+      'de': 'Zu Veranstaltung einladen',
       'en': '',
     },
-    'okd4b65y': {
-      'de': 'selected all followers app state:',
+    'l8xtmp9q': {
+      'de': 'Mitglied Kennzeichnen',
       'en': '',
     },
-    '972zlz0m': {
+    'qutbj343': {
+      'de': 'Inhaber',
+      'en': '',
+    },
+    'gpz9ygod': {
+      'de': 'Vorstandsmitglied',
+      'en': '',
+    },
+    'x0a8rxd8': {
+      'de': 'Vertreter',
+      'en': '',
+    },
+    'buq51ju8': {
+      'de': 'Trainer',
+      'en': '',
+    },
+    'bes568bf': {
+      'de': 'Mitglied entfernen',
+      'en': '',
+    },
+  },
+  // CompCreateBroadcast
+  {
+    '1uk2x8kc': {
+      'de': 'Broadcast versenden',
+      'en': '',
+    },
+    'wtauou1s': {
+      'de': 'Betreff',
+      'en': '',
+    },
+    'z5s3z6g9': {
+      'de': 'Betreff',
+      'en': '',
+    },
+    'deqlugce': {
+      'de': 'Beschreibung',
+      'en': '',
+    },
+    '1knht36v': {
+      'de': 'Deine Nachricht...',
+      'en': '',
+    },
+    '2kckd96s': {
+      'de': 'Mitglieder auswählen: ',
+      'en': '',
+    },
+    'kioczvht': {
       'de': 'Bestätigen',
       'en': '',
     },
-    'q4uzm1z0': {
+    'nmyyc0t9': {
       'de': 'Field is required',
       'en': '',
     },
-    '14bpkbfv': {
+    '6ftngsli': {
       'de': 'Please enter a real name',
       'en': '',
     },
-    '55bkq4mu': {
+    'avyyn06i': {
       'de': 'Please choose an option from the dropdown',
       'en': '',
     },
-    'ht2lqge3': {
+    'f8ultyqw': {
       'de': 'Please enter a short desription',
       'en': '',
     },
-    'xmpo3te4': {
+    'eilh9xi1': {
       'de': 'Please choose an option from the dropdown',
       'en': '',
     },
-    '5lzvwaxx': {
+    'uglurkdb': {
       'de': 'We have to have a URL for the project.',
       'en': '',
     },
-    '7834b43h': {
+    'xz3s2pst': {
       'de': 'Please enter a valid URL...',
       'en': '',
     },
-    '5z6zmoku': {
+    'iuw77yne': {
       'de': 'Please choose an option from the dropdown',
       'en': '',
     },
-    'wkgo0f4h': {
+    'wacahgr5': {
       'de': 'Field is required',
       'en': '',
     },
-    '92fb16wr': {
+    'fm3csm69': {
       'de': 'Please choose an option from the dropdown',
       'en': '',
     },
   },
-  // CompUserSelectionMembers
+  // CompNoMember
   {
-    'rnhveqbl': {
-      'de': 'Mitglieder einladen',
+    '3idzmvdb': {
+      'de': 'Leider niemand hier...',
       'en': '',
     },
-    'vdie92cq': {
-      'de': 'Alle Vereinsmitglieder',
+    'f0r2i2pm': {
+      'de': 'Sieht so aus als hätte dein Verein noch keine MItglieder.',
       'en': '',
     },
-    'k5j85851': {
-      'de': 'selected all members app state:',
+  },
+  // CompNotificationCard
+  {
+    'wyc30xtv': {
+      'de': 'Du wurdest eingeladen einem Verein beizutreten!',
       'en': '',
     },
-    '2olde1cg': {
+    'mw5p196s': {
+      'de': 'Du wurdest zu einer Veranstaltung eingeladen!',
+      'en': '',
+    },
+    'gairfzq6': {
+      'de': 'Du hast einen Broadcast erhalten!',
+      'en': '',
+    },
+  },
+  // CompUserListDynamicChildrenCheckboxCopy
+  {
+    't4stoiu2': {
+      'de': ' ',
+      'en': '',
+    },
+    'lzwq7mxe': {
+      'de': ' ',
+      'en': '',
+    },
+  },
+  // CompUserListInvitationData
+  {
+    '5j1yb50g': {
+      'de': 'Eingeladen am: ',
+      'en': '',
+    },
+  },
+  // CompFilterFacetSearch
+  {
+    'yxdd53pw': {
+      'de': 'Suche einschränken',
+      'en': '',
+    },
+    'zdevcom8': {
+      'de': 'Option 1',
+      'en': '',
+    },
+    'u42r5qku': {
+      'de': 'Sportart wählen',
+      'en': '',
+    },
+    'yt7jh9d2': {
+      'de': 'Search for an item...',
+      'en': '',
+    },
+    'su4cx2cg': {
+      'de': 'Option 1',
+      'en': '',
+    },
+    'rekbovao': {
+      'de': 'Gewichtklasse wählen',
+      'en': '',
+    },
+    'ydey1jk0': {
+      'de': 'Search for an item...',
+      'en': '',
+    },
+    'c79d0l7d': {
+      'de': 'Ort (Postleitzahl)',
+      'en': '',
+    },
+    'gjfhspbe': {
       'de': 'Bestätigen',
       'en': '',
     },
-    'dgf6c0l9': {
+    'lyva01z8': {
       'de': 'Field is required',
       'en': '',
     },
-    '339tvsmw': {
+    '4shd7gcs': {
       'de': 'Please enter a real name',
       'en': '',
     },
-    'dlnkpy0b': {
+    'v7zed35a': {
       'de': 'Please choose an option from the dropdown',
       'en': '',
     },
-    'n48zycmq': {
+    '6cingofn': {
       'de': 'Please enter a short desription',
       'en': '',
     },
-    'cidj1cqz': {
+    'qtf9hewk': {
       'de': 'Please choose an option from the dropdown',
       'en': '',
     },
-    'ya23povt': {
+    'fvj186nh': {
       'de': 'We have to have a URL for the project.',
       'en': '',
     },
-    'gvz4uj5c': {
+    'yphscaat': {
       'de': 'Please enter a valid URL...',
       'en': '',
     },
-    '6xk68s5t': {
+    'cvhcajny': {
       'de': 'Please choose an option from the dropdown',
       'en': '',
     },
-    'dwbebsj2': {
+    'z5s5h76z': {
       'de': 'Field is required',
       'en': '',
     },
-    '5v0eb6g3': {
+    'qegyfogt': {
       'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+  },
+  // CompSentEventResponse
+  {
+    '88ikv97m': {
+      'de': 'Unsicher',
+      'en': '',
+    },
+    'ik8a2vp8': {
+      'de': 'Abbrechen',
+      'en': '',
+    },
+  },
+  // CompSelectUserList
+  {
+    '9xxyhs2s': {
+      'de': 'Personen auswählen',
+      'en': '',
+    },
+    'ip2udd9s': {
+      'de': 'Mitglieder',
+      'en': '',
+    },
+    'eud0251e': {
+      'de': 'Alle Mitglieder auswählen',
+      'en': '',
+    },
+    'l8d2vwah': {
+      'de': ' ',
+      'en': '',
+    },
+    'u5xhir9m': {
+      'de': ' ',
+      'en': '',
+    },
+    '8uumpu6p': {
+      'de': 'Follower',
+      'en': '',
+    },
+    'iymh9ci9': {
+      'de': 'Alle Follower auswählen',
+      'en': '',
+    },
+    'lb8hgbuk': {
+      'de': ' ',
+      'en': '',
+    },
+    'zqljgtlj': {
+      'de': ' ',
+      'en': '',
+    },
+    'flteqd4t': {
+      'de': 'Alle Mitglieder auswählen',
+      'en': '',
+    },
+    'spx18rsv': {
+      'de': ' ',
+      'en': '',
+    },
+    'l3y60xjb': {
+      'de': ' ',
+      'en': '',
+    },
+    'ji8l5nvq': {
+      'de': 'Bestätigen',
+      'en': '',
+    },
+    'tm4uibkh': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'cepkoaum': {
+      'de': 'Please enter a real name',
+      'en': '',
+    },
+    'ika24ze1': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'njv220j8': {
+      'de': 'Please enter a short desription',
+      'en': '',
+    },
+    'nfagtbd0': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'i05xt0x3': {
+      'de': 'We have to have a URL for the project.',
+      'en': '',
+    },
+    'oaenbm6j': {
+      'de': 'Please enter a valid URL...',
+      'en': '',
+    },
+    '01sfs8ic': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'ryi69yyr': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'q944fkal': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+  },
+  // CompFilterFacetManageMember
+  {
+    '9wr376mx': {
+      'de': 'Suche einschränken',
+      'en': '',
+    },
+    '5z6yl6qm': {
+      'de': 'Option 1',
+      'en': '',
+    },
+    'x319asn5': {
+      'de': 'Mit Kennzeichnung wählen',
+      'en': '',
+    },
+    'v3cvnhsn': {
+      'de': 'Search for an item...',
+      'en': '',
+    },
+    'trrjm1rg': {
+      'de': 'Option 1',
+      'en': '',
+    },
+    'lrh7grzn': {
+      'de': 'Gewichtklasse wählen',
+      'en': '',
+    },
+    'jm6qubo7': {
+      'de': 'Search for an item...',
+      'en': '',
+    },
+    '5gesjvny': {
+      'de': 'Option 1',
+      'en': '',
+    },
+    'bfr8gk86': {
+      'de': 'Sportart wählen',
+      'en': '',
+    },
+    '0u33bzsf': {
+      'de': 'Search for an item...',
+      'en': '',
+    },
+    'zujtenc8': {
+      'de': 'Ort (Postleitzahl)',
+      'en': '',
+    },
+    'f3bl1utg': {
+      'de': 'Bestätigen',
+      'en': '',
+    },
+    'ejzel1hw': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'tqsnn7qw': {
+      'de': 'Please enter a real name',
+      'en': '',
+    },
+    'x6u28gy8': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'ovmc8kg3': {
+      'de': 'Please enter a short desription',
+      'en': '',
+    },
+    'mtsp056n': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'py7x5z0a': {
+      'de': 'We have to have a URL for the project.',
+      'en': '',
+    },
+    'ssakfs07': {
+      'de': 'Please enter a valid URL...',
+      'en': '',
+    },
+    '2qa1ocnr': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'cqipvfci': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'vt7vfpff': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+  },
+  // CompMemberInvitationResponse
+  {
+    'x6dkfbz0': {
+      'de': 'Akzeptieren',
+      'en': '',
+    },
+    'aicruuch': {
+      'de': 'Ablehnen',
+      'en': '',
+    },
+    'dpa8lyz3': {
+      'de': 'Abbrechen',
+      'en': '',
+    },
+  },
+  // CompEventActionSheet
+  {
+    'idxicswk': {
+      'de': 'Antworten ansehen',
+      'en': '',
+    },
+    'vwbpjxo9': {
+      'de': 'Personen Einladen',
+      'en': '',
+    },
+    '740m7npl': {
+      'de': 'Veranstaltung bearbeiten',
+      'en': '',
+    },
+    'm8f4nu3x': {
+      'de': 'Veranstaltung absagen & löschen',
+      'en': '',
+    },
+    'sp2vv6ne': {
+      'de': 'Abbrechen',
+      'en': '',
+    },
+    'xs29p4cl': {
+      'de': 'Einladung senden',
+      'en': '',
+    },
+    'gpba3jy3': {
+      'de': 'Mitglieder: ',
+      'en': '',
+    },
+    '0xlg6ad4': {
+      'de': 'Follower: ',
+      'en': '',
+    },
+  },
+  // CompEventResponseOverview
+  {
+    'fhhdgozy': {
+      'de': 'Personen auswählen',
+      'en': '',
+    },
+    '5qk69dk9': {
+      'de': 'Ja',
+      'en': '',
+    },
+    'yumzvwhm': {
+      'de': 'Nein',
+      'en': '',
+    },
+    'dprfoqn2': {
+      'de': 'Unsicher',
+      'en': '',
+    },
+    'gu3s8ajl': {
+      'de': 'Offen',
+      'en': '',
+    },
+  },
+  // CompNoResult
+  {
+    'kgcnu194': {
+      'de': 'Leider keine Treffer',
+      'en': '',
+    },
+    'rpv80tzo': {
+      'de':
+          'Leider konnten wir zu deiner Suchanfrage kein passendes Ergebnis finden.',
+      'en': '',
+    },
+  },
+  // CompBetaResponse
+  {
+    'kvscc6bv': {
+      'de': 'Fehler melden / Feedback',
+      'en': '',
+    },
+    've2zy3dp': {
+      'de': 'Was möchtest du uns mitteilen?',
+      'en': '',
+    },
+    '44k0f7wp': {
+      'de': 'z.B. Freies Training, Boxkampf, Tag der offenen Tür',
+      'en': '',
+    },
+    '9f65z1mz': {
+      'de': 'Feedback senden',
+      'en': '',
+    },
+  },
+  // searchBar
+  {
+    '5hq4zu2a': {
+      'de': 'Namen eingeben',
+      'en': '',
+    },
+  },
+  // CompNoMemberships
+  {
+    's8y3c54y': {
+      'de': 'Du hast keine aktiven Vereinsmitgliedschaften.',
+      'en': '',
+    },
+  },
+  // CompCreateOrgStatus
+  {
+    'kih01kp1': {
+      'de': 'Vereins-Status posten',
+      'en': '',
+    },
+    'yf125fqa': {
+      'de': 'Status ändern',
+      'en': '',
+    },
+    '0wt5ya1p': {
+      'de': 'Teile hier Neuigkeiten mit deinen Vereinsmitgliedern.',
+      'en': '',
+    },
+    'n6il1y3k': {
+      'de': 'Bestätigen',
+      'en': '',
+    },
+    '2pyl6x43': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'i0ajn7qn': {
+      'de': 'Please enter a real name',
+      'en': '',
+    },
+    'koks7d6v': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'axw3gbab': {
+      'de': 'Please enter a short desription',
+      'en': '',
+    },
+    'fpg4luis': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'j5awc0rj': {
+      'de': 'We have to have a URL for the project.',
+      'en': '',
+    },
+    '9oxga9w3': {
+      'de': 'Please enter a valid URL...',
+      'en': '',
+    },
+    'e2los7m6': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'lnpetdt6': {
+      'de': 'Field is required',
+      'en': '',
+    },
+    'akgmmpuc': {
+      'de': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+  },
+  // CompNoEventsFound
+  {
+    '5xwhf9np': {
+      'de': 'Aktuell keine Veranstaltungen verfügbar.',
+      'en': '',
+    },
+  },
+  // CompProfileQRCode
+  {
+    'adaqeuq3': {
+      'de': 'Scanne diesen QR-Code um direkt zu deinem Profil zu gelangen',
+      'en': '',
+    },
+  },
+  // changelog
+  {
+    'kz1ah530': {
+      'de': 'Changelog',
+      'en': '',
+    },
+    'rfromm6v': {
+      'de':
+          '12.01.2024\n\n- Neues Chat-Interface ist nun Standard  (Aktuell funktoniern nur 1:1 Chats)\n\n- Neues Aktionsmenü auf der Startseite für Vereine\n\n- Neu: Vereine können nun einen Status erstellen, der auf dem Vereins-Kanal zu sehen ist\n\n- Neues Datenbankmodell für Chats, sollten damit schneller laden\n\n- Bei der Personensuche können nun Filter angewendet werden\n',
+      'en': '',
+    },
+    '5hfqhfmm': {
+      'de':
+          '09.01.2024\n\n- Neues Chat-Interface. Long-Press auf das Chat-Symbol, um den neuen Chat zu öffnen  (Aktuell funktoniern nur 1:1 Chats)\n\n- Fehler Behoben bei dem in der Chat-Übersicht ein leeres Feld zu sehen war, wenn es einen Chat ohne Nachrichtigen gab\n\n- Neues Werbebanner-Format im Stack auf der Homepage, basierend auf den AdMob Formaten\n\n- Fehler Behoben bei dem der Text \"Verein verlassen\" immer als Option im erweiterten Nutzer-Menü zu sehen war\n\n- Performance-Verbesserung durch verlegen von Backend-Queries von Columsn auf listViews\n\n- Neuer Reiter \"Lokale Events\" in der Eventübersicht zeigt öffentliche Events in der gleichen Postleitzahl des Nutzers an\n\n- Auf Events mit beschränkter Teilnehmer-Zahl werden nun die verfügbaren Plätze angezeigt \n\n',
+      'en': '',
+    },
+    'xnyd5xgx': {
+      'de':
+          '05.01.2024\n\n- QR-Code-Scanner, welcher dazu benutzt werden kann die QR-Codes anderer user zu scannen und so direkt auf ihr Profil zu gelangen. (Button im \"Mein Account\" Popup)\nACHTUNG: Diese Funktion steht in der aktuellen Browser-Version der App nicht zur Verfügung.\n\n- QR-Code des eigenen Profils kann über das \"Mein Account\" Popup aufgerufen werden\n\n',
+      'en': '',
+    },
+    'ii420t53': {
+      'de': 'Schließen',
       'en': '',
     },
   },
   // Miscellaneous
   {
+    'tuu73nqe': {
+      'de': 'Bestätigen',
+      'en': '',
+    },
+    'igai1kys': {
+      'de': 'Speichern',
+      'en': '',
+    },
+    '8cuxsm56': {
+      'de': 'Löschen',
+      'en': '',
+    },
+    'hnbcpbqv': {
+      'de': 'Button',
+      'en': '',
+    },
+    'qyympxtf': {
+      'de': 'Abbrechen',
+      'en': '',
+    },
+    'bkirmuz9': {
+      'de': 'Senden',
+      'en': '',
+    },
+    '8escgwu7': {
+      'de': 'Was möchtest du uns mitteilen?',
+      'en': '',
+    },
+    'dlyo35az': {
+      'de': 'Beschreibung',
+      'en': '',
+    },
+    '5z51m3fv': {
+      'de': 'z.B. Freies Training, Boxkampf, Tag der offenen Tür',
+      'en': '',
+    },
+    'ol4z1hor': {
+      'de': 'Beschreibung',
+      'en': '',
+    },
+    'm2z4nrrb': {
+      'de': '...',
+      'en': '',
+    },
+    'q17h4rct': {
+      'de': '',
+      'en': '',
+    },
+    'mqttin0v': {
+      'de': 'Search for an item...',
+      'en': '',
+    },
     'nbhpr1eu': {
       'de': '',
       'en': '',
     },
     'gzcnq125': {
       'de': '',
+      'en': '',
+    },
+    'knfgn39d': {
+      'de':
+          'In order to send you notifications to your device, this app requires permissions for notifications.',
       'en': '',
     },
     'm6ovsdm8': {
@@ -1298,6 +2548,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'g9pp3s9d': {
+      'de': '',
+      'en': '',
+    },
+    'bpd354cp': {
       'de': '',
       'en': '',
     },

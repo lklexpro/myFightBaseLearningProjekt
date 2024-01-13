@@ -1,8 +1,10 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -90,10 +92,9 @@ class ParticipatingUserStruct extends FFFirebaseStruct {
         userParticipationSentAt: data['user_participationSentAt'] as DateTime?,
       );
 
-  static ParticipatingUserStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? ParticipatingUserStruct.fromMap(data)
-          : null;
+  static ParticipatingUserStruct? maybeFromMap(dynamic data) => data is Map
+      ? ParticipatingUserStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'user': _user,
@@ -185,6 +186,54 @@ class ParticipatingUserStruct extends FFFirebaseStruct {
           data['user_participationSentAt'],
           ParamType.DateTime,
           false,
+        ),
+      );
+
+  static ParticipatingUserStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      ParticipatingUserStruct(
+        user: convertAlgoliaParam(
+          data['user'],
+          ParamType.DocumentReference,
+          false,
+        ),
+        userID: convertAlgoliaParam(
+          data['userID'],
+          ParamType.String,
+          false,
+        ),
+        userDisplayName: convertAlgoliaParam(
+          data['user_displayName'],
+          ParamType.String,
+          false,
+        ),
+        userAvatar: convertAlgoliaParam(
+          data['user_avatar'],
+          ParamType.String,
+          false,
+        ),
+        userIsInvited: convertAlgoliaParam(
+          data['user_isInvited'],
+          ParamType.bool,
+          false,
+        ),
+        userIsParticipating: convertAlgoliaParam(
+          data['user_isParticipating'],
+          ParamType.bool,
+          false,
+        ),
+        userInvitationAcceptedAt: convertAlgoliaParam(
+          data['user_invitationAcceptedAt'],
+          ParamType.DateTime,
+          false,
+        ),
+        userParticipationSentAt: convertAlgoliaParam(
+          data['user_participationSentAt'],
+          ParamType.DateTime,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

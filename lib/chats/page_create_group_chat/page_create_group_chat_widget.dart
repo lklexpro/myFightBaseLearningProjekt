@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/chats/chat_page/chat_page_widget.dart';
+import '/common_widgets/search_bar/search_bar_widget.dart';
 import '/flutter_flow/chat/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -33,8 +35,10 @@ class _PageCreateGroupChatWidgetState extends State<PageCreateGroupChatWidget> {
     super.initState();
     _model = createModel(context, () => PageCreateGroupChatModel());
 
-    _model.textController1 ??= TextEditingController();
     _model.inputFieldGroupNameController ??= TextEditingController();
+    _model.inputFieldGroupNameFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -46,6 +50,15 @@ class _PageCreateGroupChatWidgetState extends State<PageCreateGroupChatWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -103,146 +116,73 @@ class _PageCreateGroupChatWidgetState extends State<PageCreateGroupChatWidget> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Container(
-            width: double.infinity,
-            height: 50.0,
-            decoration: BoxDecoration(
-              color: Color(0xFFDBE2E7),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 3.0,
-                  color: Color(0x33000000),
-                  offset: Offset(0.0, 2.0),
-                )
-              ],
-              borderRadius: BorderRadius.circular(0.0),
-            ),
-            alignment: AlignmentDirectional(0.0, 0.0),
-            child: TextFormField(
-              controller: _model.textController1,
-              obscureText: false,
-              decoration: InputDecoration(
-                hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Lexend Deca',
-                      color: Color(0xFF95A1AC),
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(4.0),
-                    topRight: Radius.circular(4.0),
-                  ),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(4.0),
-                    topRight: Radius.circular(4.0),
-                  ),
-                ),
-                errorBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(4.0),
-                    topRight: Radius.circular(4.0),
-                  ),
-                ),
-                focusedErrorBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(4.0),
-                    topRight: Radius.circular(4.0),
-                  ),
-                ),
-                contentPadding:
-                    EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 0.0, 0.0),
-                prefixIcon: Icon(
-                  Icons.search_outlined,
-                  color: Color(0xFF95A1AC),
-                  size: 24.0,
-                ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            child: wrapWithModel(
+              model: _model.searchBarModel,
+              updateCallback: () => setState(() {}),
+              child: SearchBarWidget(
+                userSearchAction: () async {},
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Lexend Deca',
-                    color: Color(0xFF95A1AC),
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.normal,
-                  ),
-              maxLines: null,
-              validator: _model.textController1Validator.asValidator(context),
             ),
           ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-            child: TextFormField(
-              controller: _model.inputFieldGroupNameController,
-              autofocus: true,
-              obscureText: false,
-              decoration: InputDecoration(
-                isDense: true,
-                labelText: FFLocalizations.of(context).getText(
-                  'tv4f2a54' /* Bitte einen Gruppennamen verge... */,
-                ),
-                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Readex Pro',
-                      color: FlutterFlowTheme.of(context).tertiary,
-                    ),
-                hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Readex Pro',
+          Align(
+            alignment: AlignmentDirectional(0.0, 1.0),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
+              child: TextFormField(
+                controller: _model.inputFieldGroupNameController,
+                focusNode: _model.inputFieldGroupNameFocusNode,
+                obscureText: false,
+                decoration: InputDecoration(
+                  labelText: FFLocalizations.of(context).getText(
+                    '0pk504bs' /* Bitte einen Gruppennamen verge... */,
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).alternate,
+                      width: 2.0,
                     ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).secondary,
-                    width: 2.0,
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).primary,
-                    width: 2.0,
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).primary,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).error,
-                    width: 2.0,
+                  errorBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).error,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).error,
-                    width: 2.0,
+                  focusedErrorBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).error,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
+                  filled: true,
+                  contentPadding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
                 ),
-                filled: true,
-                fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Poppins',
+                      color: FlutterFlowTheme.of(context).primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                textAlign: TextAlign.start,
+                maxLines: null,
+                maxLength: 40,
+                maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                keyboardType: TextInputType.multiline,
+                validator: _model.inputFieldGroupNameControllerValidator
+                    .asValidator(context),
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Readex Pro',
-                    color: FlutterFlowTheme.of(context).alternate,
-                  ),
-              textAlign: TextAlign.start,
-              validator: _model.inputFieldGroupNameControllerValidator
-                  .asValidator(context),
             ),
           ),
           Expanded(
@@ -263,11 +203,11 @@ class _PageCreateGroupChatWidgetState extends State<PageCreateGroupChatWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: SpinKitThreeBounce(
+                            width: 20.0,
+                            height: 20.0,
+                            child: SpinKitChasingDots(
                               color: Color(0xFFCF2E2E),
-                              size: 50.0,
+                              size: 20.0,
                             ),
                           ),
                         );

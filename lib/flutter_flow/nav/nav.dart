@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
 
-import '../../auth/base_auth_user_provider.dart';
+import '/auth/base_auth_user_provider.dart';
 
+import '/backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -94,7 +98,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/homePage',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'HomePage')
-              : HomePageWidget(),
+              : HomePageWidget(
+                  showNewUserGuide:
+                      params.getParam('showNewUserGuide', ParamType.bool),
+                ),
         ),
         FFRoute(
           name: 'PageAuthentication',
@@ -111,13 +118,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/chatPage',
           asyncParams: {
             'chatUser': getDoc(['all_users'], AllUsersRecord.fromSnapshot),
-            'chat': getDoc(['chats'], ChatsRecord.fromSnapshot),
           },
           builder: (context, params) => ChatPageWidget(
             chatUser: params.getParam('chatUser', ParamType.Document),
             chatRef: params.getParam(
                 'chatRef', ParamType.DocumentReference, false, ['chats']),
-            chat: params.getParam('chat', ParamType.Document),
           ),
         ),
         FFRoute(
@@ -141,39 +146,27 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PageUserProfileEdit',
           path: '/pageUserProfileEdit',
           requireAuth: true,
-          asyncParams: {
-            'myUserProfileDoc':
-                getDoc(['all_users'], AllUsersRecord.fromSnapshot),
-          },
-          builder: (context, params) => PageUserProfileEditWidget(
-            myUserProfileDoc:
-                params.getParam('myUserProfileDoc', ParamType.Document),
-          ),
+          builder: (context, params) => PageUserProfileEditWidget(),
         ),
         FFRoute(
-          name: 'PageEventDetails',
-          path: '/pageEventDetails',
+          name: 'PageEventDetailPage',
+          path: '/pageEventDetailPage',
           asyncParams: {
             'documentEvent': getDoc(['events'], EventsRecord.fromSnapshot),
           },
-          builder: (context, params) => PageEventDetailsWidget(
+          builder: (context, params) => PageEventDetailPageWidget(
             documentEvent: params.getParam('documentEvent', ParamType.Document),
           ),
         ),
         FFRoute(
-          name: 'PageSocialPostDetails',
-          path: '/pageSocialPostDetails',
+          name: 'PageSocialPostDetailPage',
+          path: '/pageSocialPostDetailPage',
           asyncParams: {
             'postDocument': getDoc(['posts'], PostsRecord.fromSnapshot),
           },
-          builder: (context, params) => PageSocialPostDetailsWidget(
+          builder: (context, params) => PageSocialPostDetailPageWidget(
             postDocument: params.getParam('postDocument', ParamType.Document),
           ),
-        ),
-        FFRoute(
-          name: 'PageSocialPosts',
-          path: '/pageSocialPosts',
-          builder: (context, params) => PageSocialPostsWidget(),
         ),
         FFRoute(
           name: 'PageRegisterAccountOrganization',
@@ -185,28 +178,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/pageUsersFollows',
           asyncParams: {
             'userDoc': getDoc(['all_users'], AllUsersRecord.fromSnapshot),
-            'userDocFollows': getDoc(
-                ['all_users', 'user_follows'], UserFollowsRecord.fromSnapshot),
           },
           builder: (context, params) => PageUsersFollowsWidget(
             userDoc: params.getParam('userDoc', ParamType.Document),
-            userDocFollows:
-                params.getParam('userDocFollows', ParamType.Document),
           ),
-        ),
-        FFRoute(
-          name: 'PageEvents',
-          path: '/pageEvents',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'PageEvents')
-              : PageEventsWidget(),
-        ),
-        FFRoute(
-          name: 'PageUserSearch',
-          path: '/pageUserSearch',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'PageUserSearch')
-              : PageUserSearchWidget(),
         ),
         FFRoute(
           name: 'PageAddUsersToChat',
@@ -219,24 +194,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'PageAllChats',
-          path: '/pageAllChats',
+          name: 'PageChatOverview',
+          path: '/pageChatOverview',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'PageAllChats')
-              : PageAllChatsWidget(),
+              ? NavBarPage(initialPage: 'PageChatOverview')
+              : PageChatOverviewWidget(),
         ),
         FFRoute(
           name: 'PageUsersFollowers',
           path: '/pageUsersFollowers',
           asyncParams: {
             'userDoc': getDoc(['all_users'], AllUsersRecord.fromSnapshot),
-            'userDocFollowers': getDoc(['all_users', 'user_followers'],
-                UserFollowersRecord.fromSnapshot),
           },
           builder: (context, params) => PageUsersFollowersWidget(
             userDoc: params.getParam('userDoc', ParamType.Document),
-            userDocFollowers:
-                params.getParam('userDocFollowers', ParamType.Document),
           ),
         ),
         FFRoute(
@@ -245,22 +216,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PageCreateGroupChatWidget(),
         ),
         FFRoute(
-          name: 'PageNotifications',
-          path: '/pageNotifications',
-          builder: (context, params) => PageNotificationsWidget(),
-        ),
-        FFRoute(
           name: 'PageUsersMember',
           path: '/pageUsersMember',
           asyncParams: {
             'userDoc': getDoc(['all_users'], AllUsersRecord.fromSnapshot),
-            'userDocMembers': getDoc(
-                ['all_users', 'user_members'], UserMembersRecord.fromSnapshot),
           },
           builder: (context, params) => PageUsersMemberWidget(
             userDoc: params.getParam('userDoc', ParamType.Document),
-            userDocMembers:
-                params.getParam('userDocMembers', ParamType.Document),
           ),
         ),
         FFRoute(
@@ -269,29 +231,103 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PageManageMembersWidget(),
         ),
         FFRoute(
-          name: 'PageOrgProfileEdit',
-          path: '/pageOrgProfileEdit',
-          requireAuth: true,
+          name: 'PageNotifications',
+          path: '/pageNotifications',
+          builder: (context, params) => PageNotificationsWidget(),
+        ),
+        FFRoute(
+          name: 'PageSocialPostsFeed',
+          path: '/pageSocialPostsFeed',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'PageSocialPostsFeed')
+              : PageSocialPostsFeedWidget(),
+        ),
+        FFRoute(
+          name: 'PageEventList',
+          path: '/pageEventList',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'PageEventList')
+              : PageEventListWidget(),
+        ),
+        FFRoute(
+          name: 'PageEventOrganizationList',
+          path: '/pageEventOrganizationList',
+          builder: (context, params) => PageEventOrganizationListWidget(),
+        ),
+        FFRoute(
+          name: 'PageEventEdit',
+          path: '/pageEventEdit',
           asyncParams: {
-            'myUserProfileDoc':
-                getDoc(['all_users'], AllUsersRecord.fromSnapshot),
+            'documentEvent': getDoc(['events'], EventsRecord.fromSnapshot),
           },
-          builder: (context, params) => PageOrgProfileEditWidget(
-            myUserProfileDoc:
-                params.getParam('myUserProfileDoc', ParamType.Document),
+          builder: (context, params) => PageEventEditWidget(
+            documentEvent: params.getParam('documentEvent', ParamType.Document),
           ),
         ),
         FFRoute(
-          name: 'managemebr',
-          path: '/managemebr',
-          builder: (context, params) => ManagemebrWidget(),
+          name: 'PageBroadcastDetailPage',
+          path: '/pageBroadcastDetailPage',
+          asyncParams: {
+            'documentBroadcast':
+                getDoc(['broadcasts'], BroadcastsRecord.fromSnapshot),
+          },
+          builder: (context, params) => PageBroadcastDetailPageWidget(
+            documentBroadcast:
+                params.getParam('documentBroadcast', ParamType.Document),
+          ),
         ),
         FFRoute(
-          name: 'PageSocialPostsRecentPosts',
-          path: '/pageSocialPostsRecentPosts',
+          name: 'PageBroadcastOverview',
+          path: '/pageBroadcastOverview',
+          builder: (context, params) => PageBroadcastOverviewWidget(),
+        ),
+        FFRoute(
+          name: 'PageUserSearch',
+          path: '/pageUserSearch',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'PageSocialPostsRecentPosts')
-              : PageSocialPostsRecentPostsWidget(),
+              ? NavBarPage(initialPage: 'PageUserSearch')
+              : PageUserSearchWidget(),
+        ),
+        FFRoute(
+          name: 'PageRegisterFlow',
+          path: '/pageRegisterFlow',
+          builder: (context, params) => PageRegisterFlowWidget(),
+        ),
+        FFRoute(
+          name: 'PageOrganizationCommunity',
+          path: '/pageOrganizationCommunity',
+          asyncParams: {
+            'userProfileDoc':
+                getDoc(['all_users'], AllUsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => PageOrganizationCommunityWidget(
+            userProfileDoc:
+                params.getParam('userProfileDoc', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'PageUserProfileCopy',
+          path: '/pageUserProfileCopy',
+          asyncParams: {
+            'userProfileDoc':
+                getDoc(['all_users'], AllUsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => PageUserProfileCopyWidget(
+            userProfileDoc:
+                params.getParam('userProfileDoc', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'ChatNew',
+          path: '/chatNew',
+          asyncParams: {
+            'otherChatUser': getDoc(['all_users'], AllUsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => ChatNewWidget(
+            otherChatUser: params.getParam('otherChatUser', ParamType.Document),
+            chatReference: params.getParam(
+                'chatReference', ParamType.DocumentReference, false, ['chats']),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -471,17 +507,17 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: SpinKitThreeBounce(
-                      color: Color(0xFFCF2E2E),
-                      size: 50.0,
+              ? Container(
+                  color: FlutterFlowTheme.of(context).tertiary,
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/fightbase_logo.png',
+                      width: MediaQuery.sizeOf(context).width * 0.65,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition
@@ -489,13 +525,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },
@@ -517,4 +560,24 @@ class TransitionInfo {
   final Alignment? alignment;
 
   static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+}
+
+class RootPageContext {
+  const RootPageContext(this.isRootPage, [this.errorRoute]);
+  final bool isRootPage;
+  final String? errorRoute;
+
+  static bool isInactiveRootPage(BuildContext context) {
+    final rootPageContext = context.read<RootPageContext?>();
+    final isRootPage = rootPageContext?.isRootPage ?? false;
+    final location = GoRouter.of(context).location;
+    return isRootPage &&
+        location != '/' &&
+        location != rootPageContext?.errorRoute;
+  }
+
+  static Widget wrap(Widget child, {String? errorRoute}) => Provider.value(
+        value: RootPageContext(true, errorRoute),
+        child: child,
+      );
 }

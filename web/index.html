@@ -19,31 +19,32 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="myFightBaseLearningProjekt">
+  <meta name="apple-mobile-web-app-title" content="FightBase">
 
   
 
   <meta name="robots" content="noindex" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" href="myFightbaseIco.png" sizes="any"/>
+  
 
   <!-- Open Graph & SEO tags -->
-  <meta property="og:title" content="myFightBaseLearningProjekt" />
+  <meta property="og:title" content="myFightbase " />
   <meta property="og:description" content="Built with FlutterFlow." />
-  <meta property="og:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" /> 
-  <meta name="twitter:title" content="myFightBaseLearningProjekt" />
+  <meta property="og:image" content="/assets/assets/images/myFightbaseIco.png" /> 
+  <meta name="twitter:title" content="myFightbase " />
   <meta name="twitter:description" content="Built with FlutterFlow." />
-  <meta name="twitter:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" />
+  <meta name="twitter:image" content="/assets/assets/images/myFightbaseIco.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <title> myFightBaseLearningProjekt </title>
+  <title> myFightbase  </title>
   <meta name="description" content="Built with FlutterFlow." />
     
 
   <!-- Status Bar color in Safari browser (iOS) and PWA -->
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2d2d2d">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#1d2428">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#2d2d2d">
 
   <link rel="manifest" href="manifest.json">
   <script>
@@ -54,8 +55,12 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  
+  
+  
+  
+  
   <script>
-    
     window.addEventListener('load', function (ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -66,16 +71,12 @@
         },
         onEntrypointLoaded: async function(engineInitializer) {
           // Initialize the Flutter engine
-          let appRunner = await engineInitializer.initializeEngine();
+          let appRunner = await engineInitializer.initializeEngine({});
           // Run the app
           await appRunner.runApp();
         }
       });
     });
   </script>
-  
-  
-  
-  
 </body>
 </html>
